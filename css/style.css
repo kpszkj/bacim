@@ -1,0 +1,151 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+input,
+button,
+select,
+textarea {
+	outline: none;
+}
+
+a,
+button {
+	-webkit-tap-highlight-color: transparent;
+}
+
+/* 
+ 盒子宽高，边距
+ */
+
+.contain1 {}
+
+.contain2 {}
+
+.contain3 {}
+
+.contain4 {}
+
+.contain5 {}
+
+.contain6 {}
+
+.contain7 {}
+
+.contain8 {}
+
+.contain9 {}
+
+.contain10 {}
+
+/* 
+ 字体样式，大小颜色，间距，
+ */
+
+.font1 {}
+
+.font2 {}
+
+.font3 {}
+
+.font4 {}
+
+.font5 {}
+
+.font6 {}
+
+
+
+/* 
+ 背景设计
+ */
+
+.bg1 {}
+
+.bg2 {}
+
+.bg3 {}
+
+.bg4 {}
+
+.bg5 {}
+
+.bg6 {}
+
+
+
+/* 插件 */
+
+/* 按钮一 */
+.button1 {
+	position: relative;
+	background-color: #4CAF50;
+	border: none;
+	font-size: 28px;
+	color: #FFFFFF;
+	padding: 20px;
+	width: 200px;
+	text-align: center;
+	-webkit-transition-duration: 0.4s;
+	/* Safari */
+	transition-duration: 0.4s;
+	text-decoration: none;
+	overflow: hidden;
+	cursor: pointer;
+}
+
+.button1:after {
+	border: none;
+	content: '';
+	background: #90EE90;
+	display: block;
+	position: absolute;
+	padding-top: 300%;
+	padding-left: 350%;
+	margin-left: -20px !important;
+	margin-top: -120%;
+	opacity: 0;
+	transition: all 0.8s
+}
+
+.button1:active:after {
+	border: none;
+	padding: 0;
+	margin: 0;
+	opacity: 1;
+	transition: 0s
+}
+
+.button1:hover {
+	border: none;
+}
+
+
+/* 按钮二 */
+.button2 {
+	float: left;
+	box-shadow: 0px 0px 0px 2px #9fb4f2;
+	background: linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
+	background-color: #7892c2;
+	border-radius: 10px;
+	border: 1px solid #4e6096;
+	display: inline-block;
+	cursor: pointer;
+	color: #ffffff;
+	font-family: Arial;
+	font-size: 19px;
+	padding: 12px 37px;
+	text-decoration: none;
+	text-shadow: 0px 1px 0px #283966;
+}
+
+.button2 {
+	background: linear-gradient(to bottom, #476e9e 5%, #7892c2 100%);
+	background-color: #476e9e;
+}
+
+.button2:active {
+	position: relative;
+	top: 10px;
+}
