@@ -1,8 +1,10 @@
+/* 取消所有边距 */
 * {
 	margin: 0;
 	padding: 0;
 }
 
+/* 取消网页样式 */
 input,
 button,
 select,
@@ -10,14 +12,22 @@ textarea {
 	outline: none;
 }
 
+/* 取消链接按钮点击时默认背景 */
 a,
 button {
 	-webkit-tap-highlight-color: transparent;
 }
 
-/* 
- 盒子宽高，边距
- */
+/* body尺寸 */
+body{
+	width: 1080px;
+	height: 1920px;
+	background-color: #FFFFFF;
+	background-image:url(../../img/init.png);
+	background-size: cover;
+}
+
+/* 盒子宽高，边距 */
 
 .contain1 {}
 
