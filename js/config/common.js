@@ -1,178 +1,189 @@
-(function(w){
-// 空函数
-function shield(){
-	return false;
-}
-document.addEventListener('touchstart', shield, false);//取消浏览器的所有事件，使得active的样式在手机上正常生效
-document.oncontextmenu=shield;//屏蔽选择函数
-// H5 plus事件处理
-var ws=null,as='pop-in';
-function plusReady(){
-	ws=plus.webview.currentWebview();
-	plus.key.addEventListener('backbutton', function(){
-		back();
-	},false);
-}
-if(w.plus){
-	plusReady();
-}else{
-	document.addEventListener('plusready', plusReady, false);
-}
-// DOMContentLoaded事件处理
-document.addEventListener('DOMContentLoaded', function(){
-	gInit();
-	document.body.onselectstart=shield;
-},false);
-// 返回
-w.back=function(hide){
-	if(w.plus){
-		ws||(ws=plus.webview.currentWebview());
-		(hide||ws.preate)?ws.hide('auto'):ws.close('auto');
-	}else if(history.length>1){
-		history.back();
-	}else{
-		w.close();
+(function(w) {
+	// 空函数
+	function shield() {
+		return false;
 	}
-};
-// 处理点击事件
-var openw=null;
-/**
- * 打开新窗口
- * @param {URIString} id : 要打开页面url
- * @param {String} t : 页面标题名称
- * @param {JSON} ws : Webview窗口属性
- */
-w.clicked=function(id, t, ws){
-	if(openw){//避免多次打开同一个页面
-		return null;
-	}
-	if(w.plus){
-		ws=ws||{};
-		ws.scrollIndicator||(ws.scrollIndicator='none');
-		ws.scalable||(ws.scalable=false);
-		ws.backButtonAutoControl||(ws.backButtonAutoControl='close');
-		ws.titleNView=ws.titleNView||{autoBackButton:true};
-		ws.titleNView.backgroundColor = '#D74B28';
-		ws.titleNView.titleColor = '#CCCCCC';
-		ws.doc&&(ws.titleNView.buttons=ws.titleNView.buttons||[],ws.titleNView.buttons.push({fontSrc:'_www/helloh5.ttf',text:'\ue301',fontSize:'20px',onclick:'javascript:openDoc()'}));
-		t&&(ws.titleNView.titleText=t);
-		openw = plus.webview.create(id, id, ws);
-		openw.addEventListener('loaded', function(){
-			openw.show(as);
+	document.addEventListener('touchstart', shield, false); //取消浏览器的所有事件，使得active的样式在手机上正常生效
+	document.oncontextmenu = shield; //屏蔽选择函数
+	// H5 plus事件处理
+	var ws = null,
+		as = 'pop-in';
+
+	function plusReady() {
+		ws = plus.webview.currentWebview();
+		plus.key.addEventListener('backbutton', function() {
+			back();
 		}, false);
-		openw.addEventListener('close', function(){
-			openw=null;
-		}, false);
-		return openw;
-	}else{
-		w.open(id);
 	}
-	return null;
-};
-/**
- * 创建新窗口（无原始标题栏），
- * @param {URIString} id : 要打开页面url
- * @param {JSON} ws : Webview窗口属性
- */
-w.createWithoutTitle=function(id, ws){
-	if(openw){//避免多次打开同一个页面
-		return null;
+	if (w.plus) {
+		plusReady();
+	} else {
+		document.addEventListener('plusready', plusReady, false);
 	}
-	if(w.plus){
-		ws=ws||{};
-		ws.scrollIndicator||(ws.scrollIndicator='none');
-		ws.scalable||(ws.scalable=false);
-		ws.backButtonAutoControl||(ws.backButtonAutoControl='close');
-		openw = plus.webview.create(id, id, ws);
-		openw.addEventListener('close', function(){
-			openw=null;
-		}, false);
-		return openw;
-	}else{
-		w.open(id);
-	}
-	return null;
-};
-/**
- * 打开文档页面
- * @param {URIString} c : 要打开页面url
- */
-w.openDoc=function(c){
-	plus.webview.create(c, 'document', {
-		titleNView:{
-			autoBackButton:true,
-			backgroundColor:'#D74B28',
-			titleColor:'#CCCCCC'
-		},
-		backButtonAutoControl:'close',
-		scalable:false
-	}).show('pop-in');
-};
-/**
- * 兼容提示
- */
-w.compatibleConfirm=function(){
-	plus.nativeUI.confirm('本OS原生层面不提供该控件，需使用mui框架实现类似效果。请点击“确定”下载Hello mui示例',function(e){
-		if(0==e.index){
-			plus.runtime.openURL("http://www.dcloud.io/hellomui/");
+	// DOMContentLoaded事件处理
+	document.addEventListener('DOMContentLoaded', function() {
+		gInit();
+		document.body.onselectstart = shield;
+	}, false);
+	// 返回
+	w.back = function(hide) {
+		if (w.plus) {
+			ws || (ws = plus.webview.currentWebview());
+			(hide || ws.preate) ? ws.hide('auto'): ws.close('auto');
+		} else if (history.length > 1) {
+			history.back();
+		} else {
+			w.close();
 		}
-	},"",["确定","取消"]);
-}
-// 通用元素对象
-var _dout_=null;
-w.gInit=function(){
-	_dout_=document.getElementById("output");
-};
-// 清空输出内容
-w.outClean=function(){
-	_dout_.innerText="";
-	_dout_.scrollTop=0;//在iOS8存在不滚动的现象
-};
-// 输出内容
-w.outSet=function(s){
-	console.log(s);
-	_dout_.innerText=s+"\n";
-	(0==_dout_.scrollTop)&&(_dout_.scrollTop=1);//在iOS8存在不滚动的现象
-};
-// 输出行内容
-w.outLine=function(s){
-	console.log(s);
-	_dout_.innerText+=s+"\n";
-	(0==_dout_.scrollTop)&&(_dout_.scrollTop=1);//在iOS8存在不滚动的现象
-};
-// 格式化时长字符串，格式为"HH:MM:SS"
-w.timeToStr=function(ts){
-	if(isNaN(ts)){
-		return "--:--:--";
+	};
+	// 处理点击事件
+	var openw = null;
+	/**
+	 * 打开新窗口
+	 * @param {URIString} id : 要打开页面url
+	 * @param {String} t : 页面标题名称
+	 * @param {JSON} ws : Webview窗口属性
+	 */
+	w.clicked = function(id, t, ws) {
+		if (openw) { //避免多次打开同一个页面
+			return null;
+		}
+		if (w.plus) {
+			ws = ws || {};
+			ws.scrollIndicator || (ws.scrollIndicator = 'none');
+			ws.scalable || (ws.scalable = false);
+			ws.backButtonAutoControl || (ws.backButtonAutoControl = 'close');
+			ws.titleNView = ws.titleNView || {
+				autoBackButton: true
+			};
+			ws.titleNView.backgroundColor = '#D74B28';
+			ws.titleNView.titleColor = '#CCCCCC';
+			ws.doc && (ws.titleNView.buttons = ws.titleNView.buttons || [], ws.titleNView.buttons.push({
+				fontSrc: '_www/helloh5.ttf',
+				text: '\ue301',
+				fontSize: '20px',
+				onclick: 'javascript:openDoc()'
+			}));
+			t && (ws.titleNView.titleText = t);
+			openw = plus.webview.create(id, id, ws);
+			openw.addEventListener('loaded', function() {
+				openw.show(as);
+			}, false);
+			openw.addEventListener('close', function() {
+				openw = null;
+			}, false);
+			return openw;
+		} else {
+			w.open(id);
+		}
+		return null;
+	};
+	/**
+	 * 创建新窗口（无原始标题栏），
+	 * @param {URIString} id : 要打开页面url
+	 * @param {JSON} ws : Webview窗口属性
+	 */
+	w.createWithoutTitle = function(id, ws) {
+		if (openw) { //避免多次打开同一个页面
+			return null;
+		}
+		if (w.plus) {
+			ws = ws || {};
+			ws.scrollIndicator || (ws.scrollIndicator = 'none');
+			ws.scalable || (ws.scalable = false);
+			ws.backButtonAutoControl || (ws.backButtonAutoControl = 'close');
+			openw = plus.webview.create(id, id, ws);
+			openw.addEventListener('close', function() {
+				openw = null;
+			}, false);
+			return openw;
+		} else {
+			w.open(id);
+		}
+		return null;
+	};
+	/**
+	 * 打开文档页面
+	 * @param {URIString} c : 要打开页面url
+	 */
+	w.openDoc = function(c) {
+		plus.webview.create(c, 'document', {
+			titleNView: {
+				autoBackButton: true,
+				backgroundColor: '#D74B28',
+				titleColor: '#CCCCCC'
+			},
+			backButtonAutoControl: 'close',
+			scalable: false
+		}).show('pop-in');
+	};
+	/**
+	 * 兼容提示
+	 */
+	w.compatibleConfirm = function() {
+		plus.nativeUI.confirm('本OS原生层面不提供该控件，需使用mui框架实现类似效果。请点击“确定”下载Hello mui示例', function(e) {
+			if (0 == e.index) {
+				plus.runtime.openURL("http://www.dcloud.io/hellomui/");
+			}
+		}, "", ["确定", "取消"]);
 	}
-	var h=parseInt(ts/3600);
-	var m=parseInt((ts%3600)/60);
-	var s=parseInt(ts%60);
-	return (ultZeroize(h)+":"+ultZeroize(m)+":"+ultZeroize(s));
-};
-// 格式化日期时间字符串，格式为"YYYY-MM-DD HH:MM:SS"
-w.dateToStr=function(d){
-	return (d.getFullYear()+"-"+ultZeroize(d.getMonth()+1)+"-"+ultZeroize(d.getDate())+" "+ultZeroize(d.getHours())+":"+ultZeroize(d.getMinutes())+":"+ultZeroize(d.getSeconds()));
-};
-/**
- * zeroize value with length(default is 2).
- * @param {Object} v
- * @param {Number} l
- * @return {String} 
- */
-w.ultZeroize=function(v,l){
-	var z="";
-	l=l||2;
-	v=String(v);
-	for(var i=0;i<l-v.length;i++){
-		z+="0";
-	}
-	return z+v;
-};
+	// 通用元素对象
+	var _dout_ = null;
+	w.gInit = function() {
+		_dout_ = document.getElementById("output");
+	};
+	// 清空输出内容
+	w.outClean = function() {
+		_dout_.innerText = "";
+		_dout_.scrollTop = 0; //在iOS8存在不滚动的现象
+	};
+	// 输出内容
+	w.outSet = function(s) {
+		console.log(s);
+		_dout_.innerText = s + "\n";
+		(0 == _dout_.scrollTop) && (_dout_.scrollTop = 1); //在iOS8存在不滚动的现象
+	};
+	// 输出行内容
+	w.outLine = function(s) {
+		console.log(s);
+		_dout_.innerText += s + "\n";
+		(0 == _dout_.scrollTop) && (_dout_.scrollTop = 1); //在iOS8存在不滚动的现象
+	};
+	// 格式化时长字符串，格式为"HH:MM:SS"
+	w.timeToStr = function(ts) {
+		if (isNaN(ts)) {
+			return "--:--:--";
+		}
+		var h = parseInt(ts / 3600);
+		var m = parseInt((ts % 3600) / 60);
+		var s = parseInt(ts % 60);
+		return (ultZeroize(h) + ":" + ultZeroize(m) + ":" + ultZeroize(s));
+	};
+	// 格式化日期时间字符串，格式为"YYYY-MM-DD HH:MM:SS"
+	w.dateToStr = function(d) {
+		return (d.getFullYear() + "-" + ultZeroize(d.getMonth() + 1) + "-" + ultZeroize(d.getDate()) + " " + ultZeroize(d.getHours()) +
+			":" + ultZeroize(d.getMinutes()) + ":" + ultZeroize(d.getSeconds()));
+	};
+	/**
+	 * zeroize value with length(default is 2).
+	 * @param {Object} v
+	 * @param {Number} l
+	 * @return {String} 
+	 */
+	w.ultZeroize = function(v, l) {
+		var z = "";
+		l = l || 2;
+		v = String(v);
+		for (var i = 0; i < l - v.length; i++) {
+			z += "0";
+		}
+		return z + v;
+	};
 })(window);
 
 // fast click 
-;(function () {
+;
+(function() {
 	'use strict';
 
 	/**
@@ -282,7 +293,9 @@ w.ultZeroize=function(v,l){
 
 		// Some old versions of Android don't have Function.prototype.bind
 		function bind(method, context) {
-			return function() { return method.apply(context, arguments); };
+			return function() {
+				return method.apply(context, arguments);
+			};
 		}
 
 
@@ -348,10 +361,10 @@ w.ultZeroize=function(v,l){
 	}
 
 	/**
-	* Windows Phone 8.1 fakes user agent string to look like Android and iPhone.
-	*
-	* @type boolean
-	*/
+	 * Windows Phone 8.1 fakes user agent string to look like Android and iPhone.
+	 *
+	 * @type boolean
+	 */
 	var deviceIsWindowsPhone = navigator.userAgent.indexOf("Windows Phone") >= 0;
 
 	/**
@@ -401,27 +414,27 @@ w.ultZeroize=function(v,l){
 	FastClick.prototype.needsClick = function(target) {
 		switch (target.nodeName.toLowerCase()) {
 
-		// Don't send a synthetic click to disabled inputs (issue #62)
-		case 'button':
-		case 'select':
-		case 'textarea':
-			if (target.disabled) {
+			// Don't send a synthetic click to disabled inputs (issue #62)
+			case 'button':
+			case 'select':
+			case 'textarea':
+				if (target.disabled) {
+					return true;
+				}
+
+				break;
+			case 'input':
+
+				// File inputs need real clicks on iOS 6 due to a browser bug (issue #68)
+				if ((deviceIsIOS && target.type === 'file') || target.disabled) {
+					return true;
+				}
+
+				break;
+			case 'label':
+			case 'iframe': // iOS8 homescreen apps can prevent events bubbling into frames
+			case 'video':
 				return true;
-			}
-
-			break;
-		case 'input':
-
-			// File inputs need real clicks on iOS 6 due to a browser bug (issue #68)
-			if ((deviceIsIOS && target.type === 'file') || target.disabled) {
-				return true;
-			}
-
-			break;
-		case 'label':
-		case 'iframe': // iOS8 homescreen apps can prevent events bubbling into frames
-		case 'video':
-			return true;
 		}
 
 		return (/\bneedsclick\b/).test(target.className);
@@ -436,25 +449,25 @@ w.ultZeroize=function(v,l){
 	 */
 	FastClick.prototype.needsFocus = function(target) {
 		switch (target.nodeName.toLowerCase()) {
-		case 'textarea':
-			return true;
-		case 'select':
-			return !deviceIsAndroid;
-		case 'input':
-			switch (target.type) {
-			case 'button':
-			case 'checkbox':
-			case 'file':
-			case 'image':
-			case 'radio':
-			case 'submit':
-				return false;
-			}
+			case 'textarea':
+				return true;
+			case 'select':
+				return !deviceIsAndroid;
+			case 'input':
+				switch (target.type) {
+					case 'button':
+					case 'checkbox':
+					case 'file':
+					case 'image':
+					case 'radio':
+					case 'submit':
+						return false;
+				}
 
-			// No point in attempting to focus disabled inputs
-			return !target.disabled && !target.readOnly;
-		default:
-			return (/\bneedsfocus\b/).test(target.className);
+				// No point in attempting to focus disabled inputs
+				return !target.disabled && !target.readOnly;
+			default:
+				return (/\bneedsfocus\b/).test(target.className);
 		}
 	};
 
@@ -477,7 +490,8 @@ w.ultZeroize=function(v,l){
 
 		// Synthesise a click event, with an extra attribute so it can be tracked
 		clickEvent = document.createEvent('MouseEvents');
-		clickEvent.initMouseEvent(this.determineEventType(targetElement), true, true, window, 1, touch.screenX, touch.screenY, touch.clientX, touch.clientY, false, false, false, false, 0, null);
+		clickEvent.initMouseEvent(this.determineEventType(targetElement), true, true, window, 1, touch.screenX, touch.screenY,
+			touch.clientX, touch.clientY, false, false, false, false, 0, null);
 		clickEvent.forwardedTouchEvent = true;
 		targetElement.dispatchEvent(clickEvent);
 	};
@@ -500,7 +514,8 @@ w.ultZeroize=function(v,l){
 		var length;
 
 		// Issue #160: on iOS 7, some input elements (e.g. date datetime month) throw a vague TypeError on setSelectionRange. These elements don't have an integer value for the selectionStart and selectionEnd properties, but unfortunately that can't be used for detection because accessing the properties also throws a TypeError. Just check the type instead. Filed as Apple bug #15122724.
-		if (deviceIsIOS && targetElement.setSelectionRange && targetElement.type.indexOf('date') !== 0 && targetElement.type !== 'time' && targetElement.type !== 'month') {
+		if (deviceIsIOS && targetElement.setSelectionRange && targetElement.type.indexOf('date') !== 0 && targetElement.type !==
+			'time' && targetElement.type !== 'month') {
 			length = targetElement.value.length;
 			targetElement.setSelectionRange(length, length);
 		} else {
@@ -631,7 +646,8 @@ w.ultZeroize=function(v,l){
 	 * @returns {boolean}
 	 */
 	FastClick.prototype.touchHasMoved = function(event) {
-		var touch = event.changedTouches[0], boundary = this.touchBoundary;
+		var touch = event.changedTouches[0],
+			boundary = this.touchBoundary;
 
 		if (Math.abs(touch.pageX - this.touchStartX) > boundary || Math.abs(touch.pageY - this.touchStartY) > boundary) {
 			return true;
@@ -682,7 +698,8 @@ w.ultZeroize=function(v,l){
 
 		// If no for attribute exists, attempt to retrieve the first labellable descendant element
 		// the list of which is defined here: http://www.w3.org/TR/html5/forms.html#category-label
-		return labelElement.querySelector('button, input:not([type=hidden]), keygen, meter, output, progress, select, textarea');
+		return labelElement.querySelector(
+			'button, input:not([type=hidden]), keygen, meter, output, progress, select, textarea');
 	};
 
 
@@ -726,7 +743,8 @@ w.ultZeroize=function(v,l){
 			touch = event.changedTouches[0];
 
 			// In certain cases arguments of elementFromPoint can be negative, so prevent setting targetElement to null
-			targetElement = document.elementFromPoint(touch.pageX - window.pageXOffset, touch.pageY - window.pageYOffset) || targetElement;
+			targetElement = document.elementFromPoint(touch.pageX - window.pageXOffset, touch.pageY - window.pageYOffset) ||
+				targetElement;
 			targetElement.fastClickScrollParent = this.targetElement.fastClickScrollParent;
 		}
 
@@ -745,7 +763,8 @@ w.ultZeroize=function(v,l){
 
 			// Case 1: If the touch started a while ago (best guess is 100ms based on tests for issue #36) then focus will be triggered anyway. Return early and unset the target element reference so that the subsequent click will be allowed through.
 			// Case 2: Without this exception for input elements tapped when the document is contained in an iframe, then any inputted text won't be visible even though the value attribute is updated as the user types (issue #37).
-			if ((event.timeStamp - trackingClickStart) > 100 || (deviceIsIOS && window.top !== window && targetTagName === 'input')) {
+			if ((event.timeStamp - trackingClickStart) > 100 || (deviceIsIOS && window.top !== window && targetTagName ===
+					'input')) {
 				this.targetElement = null;
 				return false;
 			}
@@ -917,7 +936,7 @@ w.ultZeroize=function(v,l){
 		}
 
 		// Chrome version - zero for other browsers
-		chromeVersion = +(/Chrome\/([0-9]+)/.exec(navigator.userAgent) || [,0])[1];
+		chromeVersion = +(/Chrome\/([0-9]+)/.exec(navigator.userAgent) || [, 0])[1];
 
 		if (chromeVersion) {
 
@@ -935,7 +954,7 @@ w.ultZeroize=function(v,l){
 					}
 				}
 
-			// Chrome desktop doesn't need FastClick (issue #15)
+				// Chrome desktop doesn't need FastClick (issue #15)
 			} else {
 				return true;
 			}
@@ -968,13 +987,14 @@ w.ultZeroize=function(v,l){
 		}
 
 		// Firefox version - zero for other browsers
-		firefoxVersion = +(/Firefox\/([0-9]+)/.exec(navigator.userAgent) || [,0])[1];
+		firefoxVersion = +(/Firefox\/([0-9]+)/.exec(navigator.userAgent) || [, 0])[1];
 
 		if (firefoxVersion >= 27) {
 			// Firefox 27+ does not have tap delay if the content is not zoomable - https://bugzilla.mozilla.org/show_bug.cgi?id=922896
 
 			metaViewport = document.querySelector('meta[name=viewport]');
-			if (metaViewport && (metaViewport.content.indexOf('user-scalable=no') !== -1 || document.documentElement.scrollWidth <= window.outerWidth)) {
+			if (metaViewport && (metaViewport.content.indexOf('user-scalable=no') !== -1 || document.documentElement.scrollWidth <=
+					window.outerWidth)) {
 				return true;
 			}
 		}
@@ -1013,8 +1033,8 @@ w.ultZeroize=function(v,l){
 		window.FastClick = FastClick;
 	}
 
-document.addEventListener('DOMContentLoaded', function() {
-    FastClick.attach(document.body);
-}, false);
+	document.addEventListener('DOMContentLoaded', function() {
+		FastClick.attach(document.body);
+	}, false);
 
 }());

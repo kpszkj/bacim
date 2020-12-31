@@ -32,6 +32,10 @@ function back() {
 // 扩展API加载完毕，现在可以正常调用扩展API 
 function plusReady() {
 	initWebView();
+	if (plus.navigator.hasNotchInScreen()) {
+		plus.navigator.setFullscreen(false);
+		plus.navigator.setStatusBarBackground("#c4aa82");
+	}
 	ws = plus.webview.currentWebview();
 	setTimeout(ws.show(), 500); //延迟创建子窗口避免影响窗口动画
 	//监听返回键
