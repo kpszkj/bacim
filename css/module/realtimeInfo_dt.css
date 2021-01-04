@@ -1,0 +1,82 @@
+
+.main{
+    width: 85%;
+    margin:80px auto 50px;
+    border-radius: 10px;
+    height: 1000px;
+    background: #f6f5f2;
+    padding-top: 74px;
+    position: relative;
+}
+.main-in{
+    font-size: 20px;
+    line-height: 40px;
+    width: 90%;
+    margin:0 auto;
+
+}
+.main-in p{
+    text-indent: 2rem;
+}
+.logo{
+    background: #ffffff;
+    border-radius: 50%;
+    border:1px solid #ccc;
+    width: 160px;
+    height: 160px;
+    text-align: center;
+    margin:0 auto;
+     position: absolute;
+    top: -76px;
+    left: 50%;
+     margin-left: -40px;
+
+}
+.logo span{
+    display: block;
+}
+.logo span img{
+    display: block;
+    text-align: center;
+    margin:40px auto 0;
+}
+.logo-bg{
+     background: url(img/title.png) no-repeat;
+     width: 814px;
+     height: 54px;
+     margin:0 auto;
+}
+.title{
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+    margin: 20px 0;
+}
+.title span{
+    line-height: 40px;
+    font-size: 20px;
+    display: block;
+}
+.title .time{
+    font-size: 18px;
+    color: #666666;
+}
+.close{
+    position: absolute;
+    bottom: 80px;
+    left: 50%;
+    margin-left: -35px;
+    width: 120px;
+    height: 40px;
+    line-height: 40px;
+    background: #d2954d;
+    color: #ffffff;
+    text-align: center;
+    border-radius: 6px;
+}
+.erweima{
+	position: absolute;
+	right: 100px;
+	bottom: 100px;
+	width: 129px;
+	height: 162px;
+}
