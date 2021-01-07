@@ -10,14 +10,9 @@ html,body{
 .main-index{
 	width: 80%;
 	margin:0 auto;
-	padding-top: 360px;
+	padding-top: 430px;
 }
-.main-in ul li{
-    float: left;
-    width: 33.33%;
-    height: 288px;
-    margin: 20px 0;
-}
+
 .top{
 	border-bottom: 1px solid #d5b085;
 	margin:0 auto;
@@ -45,53 +40,45 @@ html,body{
 	border-radius: 6px;
 	float: right;
 }
-.head {
-	overflow: hidden;
-}
 .ich-bg{
 	background: url(../../img/ich-bg.png) no-repeat;
 	height: 208px;
 	width: 895px;
 	margin:20px auto 0;
 }
-.ich-bg p{
-	padding:20px;
+.ich-bg textarea{
+	height: 168px;
+	width: 855px;
+	background: none;
+	padding: 20px;
+	border: none;
+	font-size: 18PX;
+	color: #666666;
+}
+.main ul li p{
 	text-indent: 2rem;
 	line-height: 26px;
+	margin:5px 0 5px 0;
 }
-.area{
-    margin:0 12px;
-   box-shadow:2px 2px 5px #666;
-   border-radius: 10px;
-   height: 288px;
-   background: #FFFFFF;
-}
-.area-top{
-        height: 150px; 
-}
-.area-top img{
-    -webkit-border-top-left-radius: 10px;
-     -webkit-border-top-right-radius: 10px; 
+.message{
+	color: #896233;
+	font-size: 22px;
+	margin-top:20px;
 }
 .title{
-    font-size: 20px;
-	text-align: center;
-	line-height: 36px;
+	margin-top: 20px;
 }
-.area-bottom{
-     font-size: 16px;
-     line-height: 26px;
-     margin:10px 0;
-     padding:0 15px;
+.reply{
+	background: #e9e6db;
+	padding: 20px;
+	height: 60px;
 }
-
-.page{
-    margin:0 auto;
-    text-align: center;
+.name{
+	color: red;
 }
-.page span{
-    display: inline-block;
-    margin:30px;
+.date{
+	display: inline-block;
+	margin-left: 20px;
 }
 .erweima{
 	position:relative;
