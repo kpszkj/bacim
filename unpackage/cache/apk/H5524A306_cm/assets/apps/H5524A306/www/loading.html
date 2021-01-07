@@ -1,0 +1,47 @@
+<!Doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>加载</title>
+		<style>
+			.scene {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 1080px;
+				height: 1920px;
+				-webkit-perspective: 600;
+				perspective: 600;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				z-index: 9999;
+			}
+			.scene svg {
+				width: 400px;
+				height: 400px;
+			}
+		</style>
+		<script src="js/jquery/jquery.min.js"></script>
+		<script src="js/load/load.js"></script>
+	</head>
+	<body style="width: 1080px;height: 1920px;margin: 0px;padding: 0px;" onclick="back()">
+		
+		
+			<div class="scene">
+				<svg viewBox="0 0 38 38">
+					<text x="9" y="22" font-family="Monaco" font-size="3px" style="letter-spacing:0.6" fill="grey">博爱县文化云
+						<animate attributeName="opacity" values="0.4;1;0.4" dur="1.8s" repeatCount="indefinite">
+					</text>
+					</path>
+					<path fill="#2AA198" stroke="#2AA198" stroke-width="0.6027" stroke-miterlimit="10" d="M5.203,20c0-8.159,6.638-14.797,14.797-14.797V5C11.729,5,5,11.729,5,20s6.729,15,15,15v-0.203C11.841,34.797,5.203,28.159,5.203,20z">
+						<animateTransform attributeName="transform" type="rotate" from="0 20 20" to="360 20 20" calcMode="spline"
+						 keySplines="0.4, 0, 0.2, 1" keyTimes="0;1" dur="2s" repeatCount="indefinite" />
+					</path>
+					<path fill="#859900" stroke="#859900" stroke-width="0.2027" stroke-miterlimit="10" d="M7.078,20c0-7.125,5.797-12.922,12.922-12.922V6.875C12.763,6.875,6.875,12.763,6.875,20S12.763,33.125,20,33.125v-0.203C12.875,32.922,7.078,27.125,7.078,20z">
+						<animateTransform attributeName="transform" type="rotate" from="0 20 20" to="360 20 20" dur="1.8s" repeatCount="indefinite" />
+					</path>
+				</svg>
+			</div>
+	</body>
+</html>

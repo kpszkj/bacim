@@ -3,7 +3,7 @@
 // 配置数据访问基本路径
 var baseUrl = "http://cim.kpszkj.cn";
 // 配置当前文化馆标识
-var cid = 2;
+//var cid = 2;
 //配置
 
 /* app基本配置结束 */
@@ -17,10 +17,13 @@ function initWebView() {
 }
 
 //打开新页面
-function openView(url, vid) {
-	createWithoutTitle(url, vid, {
+function openView(url,type) {
+	var nwv = createWithoutTitle(url, {
 		backButtonAutoControl: 'true',
-	}).show('pop-in');
+	});
+	if (nwv != null) {
+		nwv.show(type);
+	}
 }
 
 //返回上一级页面
@@ -60,6 +63,5 @@ function initPlus() {
 		document.addEventListener('plusready', plusReady, false);
 	}
 }
-
 
 /* 配置webview结束 */

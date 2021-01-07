@@ -1,6 +1,6 @@
 var ws = null,
 	embed = null;
-// 扩展API加载完毕，现在可以正常调用扩展API 
+// 扩展API加载完毕，现在可以正常调用扩展API
 function plusReady() {
 	//监听返回键
 	plus.key.addEventListener('backbutton', function() {

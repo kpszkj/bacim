@@ -120,12 +120,4 @@
     <dimen name="tooltip_vertical_padding">6.5dip</dimen>
     <dimen name="tooltip_y_offset_non_touch">0.0dip</dimen>
     <dimen name="tooltip_y_offset_touch">16.0dip</dimen>
-    <dimen name="video_aspect_btn_height">20.0dip</dimen>
-    <dimen name="video_aspect_btn_size">30.0dip</dimen>
-    <dimen name="video_control_bar_height">46.0dip</dimen>
-    <dimen name="video_danmaku_input_options_color_radio_btn_height">25.0dip</dimen>
-    <dimen name="video_danmaku_input_options_color_radio_btn_margin">5.0dip</dimen>
-    <dimen name="video_danmaku_input_options_color_radio_btn_size">42.0dip</dimen>
-    <dimen name="video_danmaku_input_options_color_radio_btn_width">32.0dip</dimen>
-    <dimen name="video_danmaku_input_options_height">48.0dip</dimen>
 </resources>

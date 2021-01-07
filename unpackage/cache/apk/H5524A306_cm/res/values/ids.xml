@@ -96,9 +96,6 @@
     <item type="id" name="expand_activities_button" />
     <item type="id" name="expanded_menu" />
     <item type="id" name="favoriteIcon" />
-    <item type="id" name="fl_reload_layout" />
-    <item type="id" name="fl_touch_layout" />
-    <item type="id" name="fl_video_box" />
     <item type="id" name="footer" />
     <item type="id" name="gdt_rootWrapper" />
     <item type="id" name="gif_info" />
@@ -118,8 +115,6 @@
     <item type="id" name="itemBadge" />
     <item type="id" name="itemDot" />
     <item type="id" name="item_touch_helper_previous_elevation" />
-    <item type="id" name="iv_danmaku_control" />
-    <item type="id" name="iv_fullscreen" />
     <item type="id" name="iv_listitem_dislike" />
     <item type="id" name="iv_listitem_icon" />
     <item type="id" name="iv_listitem_image" />
@@ -127,16 +122,11 @@
     <item type="id" name="iv_listitem_image2" />
     <item type="id" name="iv_listitem_image3" />
     <item type="id" name="iv_listitem_video" />
-    <item type="id" name="iv_mute" />
-    <item type="id" name="iv_play" />
-    <item type="id" name="iv_play_circle" />
-    <item type="id" name="iv_thumb" />
     <item type="id" name="layout_image_group" />
     <item type="id" name="leftLayout" />
     <item type="id" name="line1" />
     <item type="id" name="line3" />
     <item type="id" name="list_item" />
-    <item type="id" name="ll_bottom_bar" />
     <item type="id" name="ll_title_bar" />
     <item type="id" name="logs" />
     <item type="id" name="mask_view" />
@@ -154,10 +144,8 @@
     <item type="id" name="pager" />
     <item type="id" name="parentPanel" />
     <item type="id" name="path" />
-    <item type="id" name="pb_loading" />
     <item type="id" name="photoview" />
     <item type="id" name="play_view" />
-    <item type="id" name="player_seek" />
     <item type="id" name="preview" />
     <item type="id" name="progressBar" />
     <item type="id" name="progress_circular" />
@@ -207,7 +195,6 @@
     <item type="id" name="submenuarrow" />
     <item type="id" name="submit_area" />
     <item type="id" name="sure" />
-    <item type="id" name="sv_danmaku" />
     <item type="id" name="tab0" />
     <item type="id" name="tab1" />
     <item type="id" name="tab2" />
@@ -228,20 +215,11 @@
     <item type="id" name="title_template" />
     <item type="id" name="topPanel" />
     <item type="id" name="tvTitleText" />
-    <item type="id" name="tv_brightness" />
-    <item type="id" name="tv_cur_time" />
-    <item type="id" name="tv_end_time" />
-    <item type="id" name="tv_fast_forward" />
-    <item type="id" name="tv_fast_rewind" />
     <item type="id" name="tv_listitem_ad_desc" />
     <item type="id" name="tv_listitem_ad_source" />
     <item type="id" name="tv_listitem_ad_title" />
-    <item type="id" name="tv_recover_screen" />
-    <item type="id" name="tv_reload" />
-    <item type="id" name="tv_volume" />
     <item type="id" name="up" />
     <item type="id" name="video_info" />
-    <item type="id" name="video_view" />
     <item type="id" name="viewpager" />
     <item type="id" name="webview" />
 </resources>

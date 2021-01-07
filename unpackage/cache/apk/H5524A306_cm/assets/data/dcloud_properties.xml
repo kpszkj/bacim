@@ -25,7 +25,6 @@
 <feature name="Geolocation" value="io.dcloud.js.geolocation.GeolocationFeatureImpl"/>
 <feature name="Stream" value="io.dcloud.appstream.js.StreamAppFeatureImpl"/>
 <feature name="Zip" value="io.dcloud.feature.pdr.ZipFeature"/>
-<feature name="VideoPlayer" value="io.dcloud.media.MediaFeatureImpl"/>
 <feature name="Share" value="io.dcloud.share.ShareFeatureImpl"/>
 <feature name="Ad" value="io.dcloud.feature.ad.AdFlowFeatureImpl"/></features>
   <services><service name="Downloader" value="io.dcloud.net.DownloaderBootImpl"/></services>

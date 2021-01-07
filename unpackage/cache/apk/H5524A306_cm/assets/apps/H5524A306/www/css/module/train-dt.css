@@ -1,0 +1,85 @@
+
+.main{
+    width: 85%;
+    margin:80px auto 50px;
+    border-radius: 10px;
+    height: 1000px;
+    background: #f6f5f2;
+    padding-top: 74px;
+    position: relative;
+}
+.main-in{
+    font-size: 20px;
+    line-height: 40px;
+    width: 90%;
+    margin:0 auto;
+
+}
+.main-in p{
+    
+}
+.logo{
+    background: #ffffff;
+    border-radius: 50%;
+    border:1px solid #ccc;
+    width: 160px;
+    height: 160px;
+    text-align: center;
+    margin:0 auto;
+     position: absolute;
+    top: -76px;
+    left: 50%;
+     margin-left: -40px;
+
+}
+.logo span{
+    display: block;
+}
+.logo span img{
+    display: block;
+    text-align: center;
+    margin:40px auto 0;
+}
+.logo-bg{
+     background: url(img/title.png) no-repeat;
+     width: 814px;
+     height: 54px;
+     margin:0 auto;
+}
+.main-top{
+    overflow: hidden;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #e9e1d7;
+    padding-bottom: 30px;
+}
+.main-left{
+  float: left;
+  width: 430px;
+  height: 336px;
+  background: url(img/box.png) no-repeat;
+  padding: 4px;
+}
+.main-right{
+    float: left;
+    margin-left: 40px;
+}
+.close{
+    position: absolute;
+    bottom: 80px;
+    left: 50%;
+    margin-left: -35px;
+    width: 120px;
+    height: 40px;
+    line-height: 40px;
+    background: #d2954d;
+    color: #ffffff;
+    text-align: center;
+    border-radius: 6px;
+}
+.erweima{
+	position: absolute;
+	right: 100px;
+	bottom: 100px;
+	width: 129px;
+	height: 162px;
+}
