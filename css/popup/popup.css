@@ -1,1 +1,67 @@
+.popup {
+	position: fixed;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	opacity: 0;
+	visibility: hidden;
+	-webkit-transition: opacity 0.3s 0s, visibility 0s 0.3s;
+	-moz-transition: opacity 0.3s 0s, visibility 0s 0.3s;
+	transition: opacity 0.3s 0s, visibility 0s 0.3s;
+	z-index: 9999;
+}
 
+.popup.visible {
+	opacity: 1;
+	visibility: visible;
+	-webkit-transition: opacity 0.3s 0s, visibility 0s 0s;
+	-moz-transition: opacity 0.3s 0s, visibility 0s 0s;
+	transition: opacity 0.3s 0s, visibility 0s 0s;
+}
+
+.popup-container {
+	position: relative;
+	width: 800px;
+	height: 1200px;
+	margin: 360px auto;
+	//overflow-y: auto;
+	background: #FFF;
+	border-radius: .4rem .4rem .4rem .4rem;
+	text-align: center;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+	-webkit-transform: translateY(60px);
+	-moz-transform: translateY(60px);
+	-ms-transform: translateY(60px);
+	-o-transform: translateY(60px);
+	transform: translateY(60px);
+	-webkit-backface-visibility: hidden;
+	-webkit-transition-property: -webkit-transform;
+	-moz-transition-property: -moz-transform;
+	transition-property: transform;
+	-webkit-transition-duration: 0.3s;
+	-moz-transition-duration: 0.3s;
+	-ms-transition-duration: 0.3s;
+	-o-transition-duration: 0.3s;
+	transition-duration: 0.3s;
+}
+
+.popup-close {
+	/* position: absolute;
+	right: 10px;
+	top: 10px;
+	z-index: 10;
+	width: auto;
+	height: 1.25rem;
+	display: block;
+	font-size: 14px; */
+}
+
+.visible .popup-container {
+	-webkit-transform: translateY(0);
+	-moz-transform: translateY(0);
+	-ms-transform: translateY(0);
+	-o-transform: translateY(0);
+	transform: translateY(0);
+}

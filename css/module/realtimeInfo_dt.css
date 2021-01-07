@@ -29,7 +29,7 @@
      position: absolute;
     top: -76px;
     left: 50%;
-     margin-left: -40px;
+     margin-left: -80px;
 
 }
 .logo span{
@@ -41,34 +41,40 @@
     margin:40px auto 0;
 }
 .logo-bg{
-     background: url(img/title.png) no-repeat;
+     background: url(../../img/title.png) no-repeat;
      width: 814px;
      height: 54px;
      margin:0 auto;
 }
-.title{
+.dt_title{
     text-align: center;
     border-bottom: 1px solid #ccc;
-    margin: 20px 0;
+    margin: 20px 100px;
 }
-.title span{
+.dt_title span{
     line-height: 40px;
     font-size: 20px;
     display: block;
 }
-.title .time{
+.dt_title .time{
     font-size: 18px;
     color: #666666;
+}
+.contents{
+	max-height: 800px;
+	padding: 0 20px;
+	overflow-y: auto;
 }
 .close{
     position: absolute;
     bottom: 80px;
     left: 50%;
     margin-left: -35px;
-    width: 120px;
-    height: 40px;
-    line-height: 40px;
+    width: 180px;
+    height: 60px;
+    line-height: 60px;
     background: #d2954d;
+	font-size: 24px;
     color: #ffffff;
     text-align: center;
     border-radius: 6px;

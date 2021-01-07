@@ -3,9 +3,18 @@
 	margin: 0;
 	padding: 0;
 }
-ul li{
-     list-style-type:none;
-	 }
+
+/* body尺寸 */
+body {
+	width: 1080px;
+	height: 1920px;
+	overflow: hidden;
+}
+
+ul li {
+	list-style-type: none;
+}
+
 /* 取消网页样式 */
 input,
 button,
@@ -19,13 +28,6 @@ a,
 button {
 	-webkit-tap-highlight-color: transparent;
 }
-
-/* body尺寸 */
-/* body{
-	 background-image: url(../../img/init.png);
-	 background-size: 100%;
-	 background-repeat:no-repeat;
-} */
 
 /* 盒子宽高，边距 */
 

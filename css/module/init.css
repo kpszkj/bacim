@@ -1,0 +1,16 @@
+main{
+	position: relative;
+	width: 1080px;
+	height: 1920px;
+	background-image: url(../../img/init.png);
+	background-repeat: no-repeat;
+}
+
+.enter {
+	width: 280px;
+	height: 280px;
+	position: absolute;
+	left: 50%;
+	margin-left: -140px;
+	bottom: 280px;
+}

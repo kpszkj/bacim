@@ -3,12 +3,15 @@ html,body{
     height: 100%;
 }
 .main{
+	position: relative;
+	width: 1080px;
+	height: 1920px;
    background: url(../../img/body-bg.png) no-repeat top center;
     background-size: 100% 100%;
-    width: 100%;
+    overflow: hidden;
 }
 .main-index{
-	width: 80%;
+	width: 85%;
 	margin:0 auto;
 	padding-top: 430px;
 }
@@ -55,10 +58,13 @@ html,body{
 	font-size: 18PX;
 	color: #666666;
 }
+.main ul li{
+	margin:10px 0;
+}
 .main ul li p{
 	text-indent: 2rem;
-	line-height: 26px;
-	margin:5px 0 5px 0;
+	line-height: 30px;
+	padding:20px;
 }
 .message{
 	color: #896233;
@@ -67,11 +73,13 @@ html,body{
 }
 .title{
 	margin-top: 20px;
+	line-height: 40px;
+	border-bottom: 1px solid #ddd3ac;
 }
 .reply{
 	background: #e9e6db;
 	padding: 20px;
-	height: 60px;
+	line-height: 30px;
 }
 .name{
 	color: red;
@@ -79,6 +87,7 @@ html,body{
 .date{
 	display: inline-block;
 	margin-left: 20px;
+	float: right;
 }
 .erweima{
 	position:relative;
