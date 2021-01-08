@@ -3,13 +3,15 @@
 
 	<head>
 		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+		<link rel="stylesheet" type="text/css" href="css/base/base.css">
 		<link rel="stylesheet" type="text/css" href="css/module/celebrity.css">
-		<link rel="stylesheet" href="css/base/base.css">
+		<link rel="stylesheet" type="text/css" href="css/popup/popup.css">
 		<title></title>
 		<!-- 引入js -->
 		<script src="js/jquery/jquery.min.js"></script>
 		<script src="js/config/common.js"></script>
 		<script src="js/config/config.js"></script>
+		<script src="js/popup/popup.js"></script>
 	</head>
 
 	<body>
@@ -31,7 +33,7 @@
 					</ul>
 				</div>
 				<div class="main-in">
-					<ul onclick="openView('showroom_dt.html','pop-in')">
+					<ul id="popup">
 						<li>
 							<div class="area">
 								<div class="area-top"><img src="img/img1.png" alt="" width="100%" height="100%" /></div>
@@ -123,6 +125,34 @@
 					<img src="img/erweima.png">
 				</div>
 			</div>
+
+			<div class="popup">
+
+				<div class="dt_main popup-container">
+					<div class="logo">
+						<span><img src="img/logo.png" alt="" /></span>
+					</div>
+					<div class="logo-bg"></div>
+					<div class="dt_main-in">
+						<div class="dt_main-top">
+							<div class="dt_main-img">
+								<img src="img/box1.png" alt="" width="100%" height="100%" />
+							</div>
+						</div>
+						<div id="contents" class="contents">
+
+							<p> <em>范成元</em>，1978年生于河南省新乡市，毕业于清华大学艺术系。现为中国美协会员，一级美术师、国家画院驻院画
+								家、河南省书法家协会会员、河南省美术家协会会员、牧野艺术研究院副院长、古庸书画院院长兼运作部部长、齐派研
+								究院院长、北京萃雅轩精品书画研究中心主任、陨石收藏家协会副秘书长，兰艺斋签约书画家。</p>
+
+						</div>
+						<div class="close popup-close">关闭</div>
+					</div>
+				</div>
+
+			</div>
+
+
 		</div>
 
 	</body>

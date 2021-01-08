@@ -17,19 +17,20 @@ function initWebView() {
 }
 
 //打开新页面
-function openView(url,type) {
+function openView(url, type) {
 	var nwv = createWithoutTitle(url, {
 		backButtonAutoControl: 'true',
 	});
 	if (nwv != null) {
-		nwv.show(type);
+		nwv.show(type,500,null);
 	}
 }
 
 //返回上一级页面
 function back() {
 	ws = plus.webview.currentWebview();
-	ws.close('pop-out', 500, null);
+	//ws.close('pop-out', 500, null);
+	ws.close();
 }
 
 // 扩展API加载完毕，现在可以正常调用扩展API 
