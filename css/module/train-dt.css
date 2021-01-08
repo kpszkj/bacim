@@ -56,7 +56,7 @@
   float: left;
   width: 430px;
   height: 336px;
-  background: url(img/box.png) no-repeat;
+  background: url(../../img/box.png) no-repeat;
   padding: 4px;
 }
 .main-right{

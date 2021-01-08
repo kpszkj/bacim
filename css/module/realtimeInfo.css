@@ -54,7 +54,7 @@
 
 .box ul li {
 	background: #FFFFFF;
-	height: 140px;
+	height: 160px;
 	margin-top: 20px;
 }
 
@@ -76,7 +76,7 @@
 }
 
 .box-l-article {
-	padding-top: 25px;
+	padding-top: 35px;
 	padding-left: 20px;
 }
 
@@ -86,8 +86,10 @@
 }
 
 .box-c {
-	width: 530px;
+	width: 550px;
 	float: left;
+	height: 160px;
+	overflow: hidden;
 
 }
 
@@ -97,6 +99,7 @@
 
 .box-l span {
 	display: inline-block;
+	height: 160px;
 }
 
 .box-r {
@@ -107,7 +110,7 @@
 .box-r-in {
 	display: block;
 	text-align: right;
-	line-height: 140px;
+	line-height: 160px;
 	color: #333;
 	opacity: .7;
 	padding-right: 20px;
