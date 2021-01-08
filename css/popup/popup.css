@@ -23,12 +23,14 @@
 
 .popup-container {
 	position: relative;
-	width: 800px;
+	width: 910px;
 	height: 1200px;
+	background:#f6f5f2 ;
+	border-radius: 20px;
 	margin: 360px auto;
 	//overflow-y: auto;
 	background: #FFF;
-	border-radius: .4rem .4rem .4rem .4rem;
+/* 	border-radius: .4rem .4rem .4rem .4rem; */
 	text-align: center;
 	box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 	-webkit-transform: translateY(60px);
