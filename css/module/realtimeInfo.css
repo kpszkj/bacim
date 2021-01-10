@@ -243,18 +243,17 @@
 	overflow-y: auto;
 }
 .close{
-    position: absolute;
-    bottom: 80px;
-    left: 50%;
-    margin-left: -90px;
-    width: 180px;
-    height: 60px;
-    line-height: 60px;
-    background: #d2954d;
-	font-size: 24px;
-    color: #ffffff;
-    text-align: center;
-    border-radius: 6px;
+	position: absolute;
+	bottom: 80px;
+	left: 50%;
+	margin-left: -35px;
+	width: 120px;
+	height: 40px;
+	line-height: 40px;
+	background: #d2954d;
+	color: #ffffff;
+	text-align: center;
+	border-radius: 6px;
 }
 .erweima{
 	position: absolute;

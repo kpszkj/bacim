@@ -5,10 +5,11 @@
 }
 
 /* body尺寸 */
-body {
+html body {
 	width: 1080px;
 	height: 1920px;
 	overflow: hidden;
+	font-size: 18px;
 }
 
 ul li {
