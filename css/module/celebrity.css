@@ -102,17 +102,17 @@
 	padding: 0 15px;
 }
 
-.page {
+/* .page {
 	margin: 0 auto;
 	text-align: center;
-}
+} */
 
 .page span {
 	display: inline-block;
 	margin: 50px 30px;
 }
 
-.erweima {
+/* .erweima {
 	position: relative;
 	right: 0;
 	bottom: 50px;
@@ -121,7 +121,7 @@
 
 .erweima img {
 	float: right;
-}
+} */
 
 /*弹窗 */
 .dt_main {

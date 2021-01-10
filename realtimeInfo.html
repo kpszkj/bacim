@@ -32,7 +32,25 @@
 				</div>
 				<div class="box">
 					<ul id="popup">
-						<li>
+
+						<li ng-repeat="pojo in list">
+							<div class="box-l">
+								<span class="box-l-img">
+									<img src="img/box1.png" width="100%" height="100%">
+								</span>
+							</div>
+							<div class="box-c">
+								<div class="box-l-article">
+									<h4>{{pojo.title}}</h4>
+									<p>{{pojo.description}}</p>
+								</div>
+							</div>
+							<div class="box-r">
+								<span class="box-r-in">{{pojo.hotTime|date:'yyyy-MM-dd'}}</span>
+							</div>
+						</li>
+
+						<!-- <li>
 							<div class="box-l"><span class="box-l-img"><img src="img/box1.png" width="100%" height="100%"></span></div>
 							<div class="box-c">
 								<div class="box-l-article">
@@ -76,7 +94,6 @@
 							<div class="box-r"><span class="box-r-in">2020-12-11</span></div>
 						</li>
 
-
 						<li>
 							<div class="box-l"><span class="box-l-img"><img src="img/box1.png" width="100%" height="100%"></span></div>
 							<div class="box-c">
@@ -87,10 +104,13 @@
 							</div>
 							<div class="box-r"><span class="box-r-in">2020-12-11</span></div>
 						</li>
-
+ -->
 					</ul>
-					<div class="more">
+					<div class="more" ng-click="searchMore()">
 						<span>更多</span>
+					</div>
+					<div class="more" ng-if="list.length<pagination.totalItems">
+						<span>没有更多了</span>
 					</div>
 				</div>
 				<div class="erweima">
@@ -108,8 +128,8 @@
 				<div class="logo-bg"></div>
 				<div class="main-in">
 					<div class="dt_title">
-						<span>关于各省（区、市）文化和旅游厅（局），新疆生产建设兵团文化体育广电和旅游局的通知</span>
-						<span class="time">发布时间:2020-10-25 12:00</span>
+						<span>{{entity.title}}</span>
+						<span class="time">发布时间:{{entity.hotTime|date:'yyyy-MM-dd'}}</span>
 					</div>
 					<div class="contents">
 						<p> 1、根据各地文化馆评估定级系统填报工作实际和近期新冠肺炎疫情防控形势，现将第五次全国文化馆评估定级系
