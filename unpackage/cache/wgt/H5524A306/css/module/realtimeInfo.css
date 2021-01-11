@@ -154,6 +154,20 @@
 	color: #654d3b;
 }
 
+.title .active{
+	float: left;
+	background: #c69869;
+	border-radius: 4px;
+	width: 120px;
+	height: 40px;
+	border-radius: 5px;
+	margin-right: 20px;
+	text-align: center;
+	line-height: 40px;
+	border: 1px solid #c69869;
+	color: #ffffff;
+}
+
 .more {
 	padding-left: 12px;
 }
@@ -243,18 +257,17 @@
 	overflow-y: auto;
 }
 .close{
-    position: absolute;
-    bottom: 80px;
-    left: 50%;
-    margin-left: -90px;
-    width: 180px;
-    height: 60px;
-    line-height: 60px;
-    background: #d2954d;
-	font-size: 24px;
-    color: #ffffff;
-    text-align: center;
-    border-radius: 6px;
+	position: absolute;
+	bottom: 80px;
+	left: 50%;
+	margin-left: -35px;
+	width: 120px;
+	height: 40px;
+	line-height: 40px;
+	background: #d2954d;
+	color: #ffffff;
+	text-align: center;
+	border-radius: 6px;
 }
 .erweima{
 	position: absolute;

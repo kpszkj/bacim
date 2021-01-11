@@ -1,9 +1,9 @@
 /* app基本配置 */
 
 // 配置数据访问基本路径
-// var baseUrl = "http://bacim.kpszkj.cn";
-// var baseUrl = "http://localhost:8080/cim";
-// var baseUrl = "http://192.168.0.110:8080/cim";
+// var baseUrl = "http://bacim.kpszkj.cn/";
+// var baseUrl = "http://localhost:8080/cim/";
+// var baseUrl = "http://192.168.0.110:8080/cim/";
 var baseUrl = "http://app.fqxwhy.cn/";
 // 配置当前文化馆标识
 //var cid = 2;

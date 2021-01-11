@@ -5,7 +5,7 @@ app.controller('realtimeinfoController', function ($scope, $controller, realtime
 
     //初始化加载内容
     $scope.init = function () {
-        load();
+        firstLoad();
         $scope.findCaList();
         $scope.search(1);
     }
@@ -87,13 +87,17 @@ app.controller('realtimeinfoController', function ($scope, $controller, realtime
 
     //资讯详情
     $scope.findDetail = function (id) {
+        loadDetail();
         //页面加载
         realtimeinfoService.findDetail(id).success(function (rs) {
             $scope.entity = rs;
             $scope.entity.hotTime = $scope.entity.hotTime.replace(' ', 'T');
             $("#contents").html($scope.entity.contents);
             $scope.$apply();
-            popup();
+            setTimeout(function () {
+                closeLoad();
+                popup();
+            }, 200)
         });
     }
 

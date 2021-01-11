@@ -137,17 +137,17 @@
 	margin-top: 38px;
 }
 
-.page {
+/* .page {
 	margin: 0 auto;
 	text-align: center;
-}
+} */
 
 .page span {
 	display: inline-block;
 	margin: 70px 30px;
 }
 
-.erweima {
+/* .erweima {
 	position: relative;
 	right: 0;
 	bottom: 50px;
@@ -156,7 +156,7 @@
 
 .erweima img {
 	float: right;
-}
+} */
 
 /* 弹窗 */
 
@@ -225,10 +225,10 @@
 }
 
 .dt_main-img {
-	width: 80%;
-	height: 336px;
-	background: url(../../img/box.png) no-repeat;
+	width: 792px;
 	padding: 4px;
+	height: 336px;
+	background: url(../../img/box2.png) no-repeat;
 	margin: 0 auto;
 }
 

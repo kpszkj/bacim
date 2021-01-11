@@ -1,11 +1,11 @@
 $(function () {
 
     //打开窗口
-    $('#popup').on('click', function(event) {
-        event.preventDefault();
-        $('.popup').addClass('visible');
-        //$(".dialog-addquxiao").hide()
-    });
+    /* $('#popup').on('click', function (event) {
+         event.preventDefault();
+         $('.popup').addClass('visible');
+         //$(".dialog-addquxiao").hide()
+     });*/
 
     popup = function () {
         $('.popup').addClass('visible');
@@ -19,13 +19,23 @@ $(function () {
         }
     });
 
+
+    firstLoad = function () {
+        $('.loading').show();
+        $('#all').hide();
+    }
+
     load = function () {
         $('.loading').show();
         $('#main').hide();
     }
+    loadDetail = function () {
+        $('.loading').show();
+    }
 
     closeLoad = function () {
         $('.loading').hide();
+        $('#all').show();
         $('#main').show();
     }
 

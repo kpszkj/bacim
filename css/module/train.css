@@ -72,6 +72,20 @@
 	color: #654d3b;
 }
 
+.head .active{
+	float: left;
+	background: #c69869;
+	border-radius: 4px;
+	width: 120px;
+	height: 40px;
+	border-radius: 5px;
+	margin-right: 20px;
+	text-align: center;
+	line-height: 40px;
+	border: 1px solid #c69869;
+	color: #ffffff;
+}
+
 .area {
 	margin: 0 12px;
 	box-shadow: 0 4px 10px 0 rgba(85, 85, 85, .4), inset 0 2px 0 0 rgba(255, 255, 255, .2);
@@ -223,17 +237,19 @@
 }
 
 .dt_main-left {
-	width: 429px;
+	float: left;
+	display: inline-block;
+	width: 420px;
 	height: 336px;
 	background: url(../../img/box.png) no-repeat;
 	padding: 4px;
 	margin: 0 auto;
 }
 
-
 .dt_main-right {
-	float: left;
-	margin-left: 40px;
+	float: right;
+	display: inline-block;
+	margin-left: 20px;
 }
 
 .close {

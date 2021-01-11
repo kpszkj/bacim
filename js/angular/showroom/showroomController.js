@@ -1,37 +1,17 @@
 //控制层
-app.controller('showroomController', function ($scope, $controller, $location, $filter, indexService, showroomService) {
+app.controller('showroomController', function ($scope, $controller, $location, $filter, showroomService) {
 
     $controller('baseController', {$scope: $scope});//继承
 
     $scope.entity = {contents: []}
     //初始化加载内容
     $scope.init = function () {
-        $(".myPagination").hide();
-        var index = layer.load(2);
-        //验证登录状态
-        $scope.findActiveUser();
+        firstLoad();
         $scope.findCaList();
-        $scope.findLaList();
-        $scope.findArtList();
-        $scope.search(1, index);
+        /*$scope.findLaList();
+        $scope.findArtList();*/
+        $scope.search(1);
     }
-
-    //验证登录状态
-    $scope.findActiveUser = function () {
-        indexService.getLoginInfo().success(function (rs) {
-            $scope.activeUser = rs;
-        })
-    };
-
-    //退出登录
-    $scope.logout = function () {
-        indexService.logout().success(function (rs) {
-            if (rs.success) {
-                layer.msg("退出成功")
-                $scope.activeUser = null;
-            }
-        })
-    };
 
     //查询所有分类
     $scope.caList = [];
@@ -44,14 +24,14 @@ app.controller('showroomController', function ($scope, $controller, $location, $
     }
 
     //查询所有标签
-    $scope.laList = [];
+    /*$scope.laList = [];
     $scope.findLaList = function () {
         showroomService.findLaList().success(
             function (rs) {
                 $scope.laList = rs;
             }
         );
-    }
+    }*/
 
 
     //查询全部
@@ -59,34 +39,34 @@ app.controller('showroomController', function ($scope, $controller, $location, $
     $scope.searchEntity = {isHot: true};
     //设置分类
     $scope.setCaFk = function (id) {
-        $(".myPagination").hide();
-        $("#showPage").hide();
-        $("#hidePage").show();
-        var index = layer.load(2);
+
+        load();
         $scope.searchEntity.caFk = id;
-        $scope.search(1, index);
+        $scope.search(1);
     }
     //设置状态
-    $scope.setLaFk = function (lFk) {
+    /*$scope.setLaFk = function (lFk) {
         $(".myPagination").hide();
         $("#showPage").hide();
         $("#hidePage").show();
         var index = layer.load(2);
         $scope.searchEntity.lFk = lFk;
         $scope.search(1, index);
-    }
+    }*/
     //设置排序
-    $scope.setIsHot = function (isHot) {
+    /*$scope.setIsHot = function (isHot) {
         $(".myPagination").hide();
         $("#showPage").hide();
         $("#hidePage").show();
         var index = layer.load(2);
         $scope.searchEntity.isHot = isHot;
         $scope.search(1, index);
-    }
+    }*/
 
     $scope.list = [];
-    $scope.search = function (page, index) {
+    $scope.pagination.pageSize = 9;
+    $scope.search = function (page) {
+        load();
         /*scrollTo(0, 0);*/
         /*document.body.animate({'scrollTop':0},500);*/
         showroomService.search(page, $scope.pagination.pageSize, $scope.searchEntity).success(
@@ -110,68 +90,60 @@ app.controller('showroomController', function ($scope, $controller, $location, $
 
                 }*/
                 $scope.$apply();
-                layer.close(index);
+                closeLoad();
+                /*layer.close(index);
                 $("#showPage").show();
                 $("#hidePage").hide();
-                $(".myPagination").show();
+                $(".myPagination").show();*/
             }
         );
     }
 
 
     //资讯详情
-    $scope.findDetail = function () {
+    $scope.findDetail = function (id) {
         //页面加载
-        var index = layer.load(2);
-        $("html").hide();
-        $(".clearfix").hide();
-        $("#hidePage").show();
-
-        $scope.findArtList();
-        var id = $location.search()['id'];
-        if (isEmpty(id)) {
-        } else {
-            showroomService.findDetail(id).success(
-                function (rs) {
-                    $scope.entity = rs;
-                    $scope.entity.contents = JSON.parse($scope.entity.contents);
-                    /*$("#contents").html($scope.entity.contents);*/
-                    $scope.entity.hotTime = $filter('date')($scope.entity.hotTime.replace(' ', 'T'), "yyyy-MM-dd");
-                    //页面显示
-                    layer.close(index);
-                    $(".clearfix").show();
-                    $("#hidePage").hide();
-                    $("html").show();
-                }
-            );
-        }
+        loadDetail();
+        //$scope.findArtList();
+        showroomService.findDetail(id).success(
+            function (rs) {
+                $scope.entity = rs;
+                $scope.entity.contents = JSON.parse($scope.entity.contents);
+                /*$("#contents").html($scope.entity.contents);*/
+                $scope.entity.hotTime = $filter('date')($scope.entity.hotTime.replace(' ', 'T'), "yyyy-MM-dd");
+                //页面显示
+                setTimeout(function () {
+                    closeLoad();
+                    popup();
+                }, 200)
+            });
     }
 
 
     //查询6条最新艺术作品
-    $scope.artList = [];
-    $scope.artList1 = [];
-    $scope.artList2 = [];
-    $scope.findArtList = function () {
-        indexService.findArtList().success(
-            function (rs) {
-                $scope.artList = rs;
-                for (var i = 0; i < $scope.artList.length; i++) {
-                    if (i < 2) {
-                        $scope.artList2.push($scope.artList[i]);
-                    } else {
-                        $scope.artList1.push($scope.artList[i]);
-                    }
-                }
-            }
-        );
-    }
+    /* $scope.artList = [];
+     $scope.artList1 = [];
+     $scope.artList2 = [];
+     $scope.findArtList = function () {
+         indexService.findArtList().success(
+             function (rs) {
+                 $scope.artList = rs;
+                 for (var i = 0; i < $scope.artList.length; i++) {
+                     if (i < 2) {
+                         $scope.artList2.push($scope.artList[i]);
+                     } else {
+                         $scope.artList1.push($scope.artList[i]);
+                     }
+                 }
+             }
+         );
+     }*/
 
 
     //重新加载页面
-    $scope.reload = function (id) {
+    /*$scope.reload = function (id) {
         window.location.href = "showroomDetail.html#?id=" + id;
         window.location.reload();
-    }
+    }*/
 
 });	

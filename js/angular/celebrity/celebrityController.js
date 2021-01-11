@@ -1,33 +1,14 @@
 //控制层
-app.controller('celebrityController', function ($scope, $controller, $location, $filter, indexService, celebrityService) {
+app.controller('celebrityController', function ($scope, $controller, $location, $filter, celebrityService) {
 
     $controller('baseController', {$scope: $scope});//继承
 
     //初始化加载内容
     $scope.init = function () {
-        $(".myPagination").hide();
-        var index = layer.load(2);
-        //验证登录状态
-        $scope.findActiveUser();
+        firstLoad();
         $scope.findCaList();
-        $scope.search(1, index);
+        $scope.search(1);
     }
-
-    //验证登录状态
-    $scope.findActiveUser = function () {
-        indexService.getLoginInfo().success(function (rs) {
-            $scope.activeUser = rs;
-        })
-    };
-
-    $scope.logout = function () {
-        indexService.logout().success(function (rs) {
-            if (rs.success) {
-                $scope.activeUser = null;
-                layer.msg(rs.message);
-            }
-        })
-    };
 
     //查询所有分类
     $scope.caList = [];
@@ -47,18 +28,16 @@ app.controller('celebrityController', function ($scope, $controller, $location, 
     $scope.searchEntity = {isHot: true};
     //设置分类
     $scope.setCaFk = function (id) {
-        $(".myPagination").hide();
-        $("#showPage").hide();
-        $("#hidePage").show();
-        var index = layer.load(2);
+        load();
         $scope.searchEntity.caFk = id;
-        $scope.search(1, index);
+        $scope.search(1);
     }
 
     $scope.list = [];
-    $scope.pagination.pageSize = 8;
-    $scope.search = function (page, index) {
-        scrollTo(0, 0);
+    $scope.pagination.pageSize = 9;
+    $scope.search = function (page) {
+        load();
+        /*scrollTo(0, 0);*/
         /*document.body.animate({'scrollTop':0},500);*/
         celebrityService.search(page, $scope.pagination.pageSize, $scope.searchEntity).success(
             function (rs) {
@@ -89,39 +68,29 @@ app.controller('celebrityController', function ($scope, $controller, $location, 
 
                 }*/
                 $scope.$apply();
-                layer.close(index);
-                $("#showPage").show();
-                $("#hidePage").hide();
-                $(".myPagination").show();
+                closeLoad();
             }
         );
     }
 
 
     //资讯详情
-    $scope.findDetail = function () {
+    $scope.findDetail = function (id) {
         //页面加载
-        var index = layer.load(2);
-        $("html").hide();
-        $(".clearfix").hide();
-        $("#hidePage").show();
+        loadDetail();
 
-        var id = $location.search()['id'];
-        if (isEmpty(id)) {
-        } else {
-            celebrityService.findDetail(id).success(
-                function (rs) {
-                    $scope.entity = rs;
-                    $("#contents").html($scope.entity.contents);
-                    $scope.entity.hotTime = $filter('date')($scope.entity.hotTime.replace(' ', 'T'), "yyyy-MM-dd");
-                    //页面显示
-                    layer.close(index);
-                    $(".clearfix").show();
-                    $("#hidePage").hide();
-                    $("html").show();
-                }
-            );
-        }
+
+        celebrityService.findDetail(id).success(
+            function (rs) {
+                $scope.entity = rs;
+                $("#contents").html($scope.entity.contents);
+                $scope.entity.hotTime = $filter('date')($scope.entity.hotTime.replace(' ', 'T'), "yyyy-MM-dd");
+                //页面显示
+                setTimeout(function () {
+                    closeLoad();
+                    popup();
+                }, 200)
+            });
     }
 
 });	
