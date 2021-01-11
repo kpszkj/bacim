@@ -56,14 +56,14 @@
 .ich-bg {
 	background: url(../../img/ich-bg.png) no-repeat;
 	height: 208px;
-	width: 895px;
+	width: 846px;
 	margin: 20px auto 0;
 }
 
 .ich-bg p {
-	padding: 20px;
+	padding: 24px;
 	text-indent: 2rem;
-	line-height: 26px;
+	line-height: 28px;
 }
 
 .area {
@@ -185,10 +185,10 @@
 }
 
 .dt_main-img {
-	width: 80%;
-	height: 336px;
-	background: url(../../img/box.png) no-repeat;
+	width: 792px;
 	padding: 4px;
+	height: 336px;
+	background: url(../../img/box2.png) no-repeat;
 	margin: 0 auto;
 }
 

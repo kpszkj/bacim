@@ -5,7 +5,32 @@
 	background-image: url(../../img/body-bg.png);
 	background-repeat: no-repeat;
 }
-
+.search{
+	background: #FFFFFF;
+	height: 46px;
+	line-height: 46px;
+	width: 280px;
+	float: right;
+	margin-right: 60px;
+	border-radius: 2px;
+	border: 1px solid #d5b085;
+}
+.search input{
+	height: 46px;
+	line-height: 46px;
+	border: none;
+	background: #FFFFFF;
+	float: left;
+	padding-left: 10px;
+	width: 210px;
+}
+.search button{
+	float: left;
+	width: 60px;
+	height: 46px;
+	border: none;
+	background: url(../../img/search.png) no-repeat;
+}
 .section-index {
 	width: 85%;
 	margin: 0 auto;
@@ -28,6 +53,7 @@
 	text-align: center;
 	line-height: 50px;
 	font-size: 20px;
+	float: left;
 }
 
 .top-r {
@@ -44,7 +70,8 @@
 
 .box {
 	overflow-y: auto;
-	max-height: 1000px;
+	padding-bottom: 170px;
+	max-height: 870px;
 }
 
 .box ul {
@@ -59,12 +86,14 @@
 
 .box-l-img {
 	float: left;
-	width: 180px;
-	height: 160px;
 }
 
 .box-l-img img {
 	display: block;
+	width: 160px;
+	max-width: 100%;
+	margin-right: auto;
+	margin-left: auto;
 }
 
 .box ul li p {
@@ -79,7 +108,7 @@
 
 .box-l {
 	float: left;
-	width: 180px;
+	width: 160px;
 }
 
 .box-c {
@@ -92,21 +121,6 @@
 
 .box-c h4 {
 	color: #563921;
-	-webkit-line-clamp: 1;
-	text-overflow: -o-ellipsis-lastline;
-	text-overflow: ellipsis;
-	display: -webkit-box;
-	-webkit-box-orient: vertical;
-	overflow: hidden;
-}
-
-.box-c p {
-	-webkit-line-clamp: 2;
-	text-overflow: -o-ellipsis-lastline;
-	text-overflow: ellipsis;
-	display: -webkit-box;
-	-webkit-box-orient: vertical;
-	overflow: hidden;
 }
 
 .box-l span {
@@ -154,20 +168,6 @@
 	color: #654d3b;
 }
 
-.title .active{
-	float: left;
-	background: #c69869;
-	border-radius: 4px;
-	width: 120px;
-	height: 40px;
-	border-radius: 5px;
-	margin-right: 20px;
-	text-align: center;
-	line-height: 40px;
-	border: 1px solid #c69869;
-	color: #ffffff;
-}
-
 .more {
 	padding-left: 12px;
 }
@@ -187,92 +187,4 @@
 	position: absolute;
 	bottom: 100px;
 	right: 100px;
-}
-
-/* 弹窗*/
-.main{
-    width: 85%;
-    margin:80px auto 50px;
-    border-radius: 10px;
-    height: 1000px;
-    background: #f6f5f2;
-    padding-top: 74px;
-    position: relative;
-}
-.main-in{
-    font-size: 20px;
-    line-height: 40px;
-    width: 90%;
-    margin:0 auto;
-
-}
-.main-in p{
-    text-indent: 2rem;
-}
-.logo{
-    background: #ffffff;
-    border-radius: 50%;
-    border:1px solid #ccc;
-    width: 160px;
-    height: 160px;
-    text-align: center;
-    margin:0 auto;
-     position: absolute;
-    top: -76px;
-    left: 50%;
-     margin-left: -80px;
-
-}
-.logo span{
-    display: block;
-}
-.logo span img{
-    display: block;
-    text-align: center;
-    margin:40px auto 0;
-}
-.logo-bg{
-     background: url(../../img/title.png) no-repeat;
-     width: 814px;
-     height: 54px;
-     margin:0 auto;
-}
-.dt_title{
-    text-align: center;
-    border-bottom: 1px solid #ccc;
-    margin: 20px 100px;
-}
-.dt_title span{
-    line-height: 40px;
-    font-size: 20px;
-    display: block;
-}
-.dt_title .time{
-    font-size: 18px;
-    color: #666666;
-}
-.contents{
-	max-height: 800px;
-	padding: 0 20px;
-	overflow-y: auto;
-}
-.close{
-	position: absolute;
-	bottom: 80px;
-	left: 50%;
-	margin-left: -35px;
-	width: 120px;
-	height: 40px;
-	line-height: 40px;
-	background: #d2954d;
-	color: #ffffff;
-	text-align: center;
-	border-radius: 6px;
-}
-.erweima{
-	position: absolute;
-	right: 100px;
-	bottom: 100px;
-	width: 129px;
-	height: 162px;
 }

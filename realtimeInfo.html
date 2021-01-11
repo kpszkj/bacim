@@ -1,156 +1,172 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title></title>
+<head>
+    <meta charset="utf-8">
+    <title></title>
 
-		<!-- 引入css -->
-		<link rel="stylesheet" href="css/base/base.css">
-		<link rel="stylesheet" href="css/module/realtimeInfo.css">
-		<link rel="stylesheet" href="css/popup/popup.css">
-		<!-- 引入js -->
-		<script src="js/jquery/jquery.min.js"></script>
-		<script src="js/config/common.js"></script>
-		<script src="js/config/config.js"></script>
-		<script src="js/popup/popup.js"></script>
-	</head>
-	<body>
-		<div class="section">
-			<div class="section-index">
-				<div class="top">
-					<span class="top-l">资讯动态</span>
-					<span class="top-r">返回</span>
-				</div>
-				<div class="title">
-					<ul>
-						<li>资讯动态</li>
-						<li>资讯动态</li>
-						<li>资讯动态</li>
-						<li>资讯动态</li>
-						<li>资讯动态</li>
-					</ul>
-				</div>
-				<div class="box">
-					<ul id="popup">
+    <!-- 引入css -->
+    <link rel="stylesheet" href="css/base/base.css">
+    <link rel="stylesheet" href="css/module/realtimeInfo.css">
+    <link rel="stylesheet" href="css/popup/popup.css">
+    <!-- 引入js -->
+    <script src="js/jquery/jquery.min.js"></script>
+    <script src="js/config/common.js"></script>
+    <script src="js/config/config.js"></script>
+    <script src="js/popup/popup.js"></script>
+    <!--angularjs组件-->
+    <script src="plugins/angularjs/angular.min.js"></script>
+    <!--引入baseApp-->
+    <script src="js/angular/app/baseApp.js"></script>
+    <script src="js/angular/app/baseController.js"></script>
+    <script src="js/angular/realtimeinfo/realtimeinfoService.js"></script>
+    <script src="js/angular/realtimeinfo/realtimeinfoController.js"></script>
+</head>
+<body ng-app="bacim" ng-controller="realtimeinfoController" ng-init="init()">
+<div class="section">
+    <div class="section-index">
+        <div class="top">
+            <span class="top-l">资讯动态</span>
+            <span class="top-r">返回</span>
+        </div>
 
-						<li ng-repeat="pojo in list">
-							<div class="box-l">
+        <div class="title">
+            <ul>
+                <li ng-if="searchEntity.caFk==null" class="active">全部</li>
+                <li ng-if="searchEntity.caFk!=null" ng-click="setCaFk(null)">全部</li>
+            </ul>
+            <ul ng-repeat="pojo in caList">
+                <li ng-if="searchEntity.caFk==pojo.id" class="active">{{pojo.name}}</li>
+                <li ng-if="searchEntity.caFk!=pojo.id" ng-click="setCaFk(pojo.id)">{{pojo.name}}</li>
+            </ul>
+        </div>
+
+        <div class="box" id="main">
+            <ul id="popup">
+
+                <li ng-repeat="pojo in list" ng-click="findDetail(pojo.id)">
+                    <div class="box-l">
 								<span class="box-l-img">
 									<img src="img/box1.png" width="100%" height="100%">
 								</span>
-							</div>
-							<div class="box-c">
-								<div class="box-l-article">
-									<h4>{{pojo.title}}</h4>
-									<p>{{pojo.description}}</p>
-								</div>
-							</div>
-							<div class="box-r">
-								<span class="box-r-in">{{pojo.hotTime|date:'yyyy-MM-dd'}}</span>
-							</div>
-						</li>
+                    </div>
+                    <div class="box-c">
+                        <div class="box-l-article">
+                            <h4>{{pojo.title}}</h4>
+                            <p>{{pojo.description}}</p>
+                        </div>
+                    </div>
+                    <div class="box-r">
+                        <span class="box-r-in">{{pojo.hotTime|date:'yyyy-MM-dd'}}</span>
+                    </div>
+                </li>
 
-						<!-- <li>
-							<div class="box-l"><span class="box-l-img"><img src="img/box1.png" width="100%" height="100%"></span></div>
-							<div class="box-c">
-								<div class="box-l-article">
-									<h4>徐衣显观摩我县返乡创业工作开展情况</h4>
-									<p>12月15日，市委副书记、市长徐衣显，副市长王付举到我县观摩返乡创业工作开展情况。县委书记陈泓，县委副书记、县长张红卫。</p>
-								</div>
-							</div>
-							<div class="box-r"><span class="box-r-in">2020-12-11</span></div>
-						</li>
+                <!-- <li>
+                    <div class="box-l"><span class="box-l-img"><img src="img/box1.png" width="100%" height="100%"></span></div>
+                    <div class="box-c">
+                        <div class="box-l-article">
+                            <h4>徐衣显观摩我县返乡创业工作开展情况</h4>
+                            <p>12月15日，市委副书记、市长徐衣显，副市长王付举到我县观摩返乡创业工作开展情况。县委书记陈泓，县委副书记、县长张红卫。</p>
+                        </div>
+                    </div>
+                    <div class="box-r"><span class="box-r-in">2020-12-11</span></div>
+                </li>
 
-						<li>
-							<div class="box-l"><span class="box-l-img"><img src="img/box1.png" width="100%" height="100%"></span></div>
-							<div class="box-c">
-								<div class="box-l-article">
-									<h4>徐衣显观摩我县返乡创业工作开展情况</h4>
-									<p>12月15日，市委副书记、市长徐衣显，副市长王付举到我县观摩返乡创业工作开展情况。县委书记陈泓，县委副书记、县长张红卫。</p>
-								</div>
-							</div>
-							<div class="box-r"><span class="box-r-in">2020-12-11</span></div>
-						</li>
+                <li>
+                    <div class="box-l"><span class="box-l-img"><img src="img/box1.png" width="100%" height="100%"></span></div>
+                    <div class="box-c">
+                        <div class="box-l-article">
+                            <h4>徐衣显观摩我县返乡创业工作开展情况</h4>
+                            <p>12月15日，市委副书记、市长徐衣显，副市长王付举到我县观摩返乡创业工作开展情况。县委书记陈泓，县委副书记、县长张红卫。</p>
+                        </div>
+                    </div>
+                    <div class="box-r"><span class="box-r-in">2020-12-11</span></div>
+                </li>
 
-						<li>
-							<div class="box-l"><span class="box-l-img"><img src="img/box1.png" width="100%" height="100%"></span></div>
-							<div class="box-c">
-								<div class="box-l-article">
-									<h4>徐衣显观摩我县返乡创业工作开展情况</h4>
-									<p>12月15日，市委副书记、市长徐衣显，副市长王付举到我县观摩返乡创业工作开展情况。县委书记陈泓，县委副书记、县长张红卫。</p>
-								</div>
-							</div>
-							<div class="box-r"><span class="box-r-in">2020-12-11</span></div>
-						</li>
+                <li>
+                    <div class="box-l"><span class="box-l-img"><img src="img/box1.png" width="100%" height="100%"></span></div>
+                    <div class="box-c">
+                        <div class="box-l-article">
+                            <h4>徐衣显观摩我县返乡创业工作开展情况</h4>
+                            <p>12月15日，市委副书记、市长徐衣显，副市长王付举到我县观摩返乡创业工作开展情况。县委书记陈泓，县委副书记、县长张红卫。</p>
+                        </div>
+                    </div>
+                    <div class="box-r"><span class="box-r-in">2020-12-11</span></div>
+                </li>
 
-						<li>
-							<div class="box-l"><span class="box-l-img"><img src="img/box1.png" width="100%" height="100%"></span></div>
-							<div class="box-c">
-								<div class="box-l-article">
-									<h4>徐衣显观摩我县返乡创业工作开展情况徐衣显观摩我县返乡创业工作开展情况徐衣显观摩我县返乡创业工作开展情况徐衣显观摩我县返乡创业工作开展情况徐衣显观摩我县返乡创业工作开展情况徐衣显观摩我县返乡创业工作开展情况徐衣显观摩我县返乡创业工作开展情况</h4>
-									<p>12月15日，市委副书记、市长徐衣显，副市长王付举到我县观摩返乡创业工作开展情况。县委书记陈泓，县委副书记、12月15日，市委副书记、市长徐衣显，副市长王付举到我县观摩返乡创业工作开展情况。县委书记陈泓，县委副书记、县长12月15日，市委副书记、市长徐衣显，副市长王付举到我县观摩返乡创业工作开展情况。县委书记陈泓，县委副书记、县长12月15日，市委副书记、市长徐衣显，副市长王付举到我县观摩返乡创业工作开展情况。县委书记陈泓，县委副书记、县长县长张红卫。</p>
-								</div>
-							</div>
-							<div class="box-r"><span class="box-r-in">2020-12-11</span></div>
-						</li>
+                <li>
+                    <div class="box-l"><span class="box-l-img"><img src="img/box1.png" width="100%" height="100%"></span></div>
+                    <div class="box-c">
+                        <div class="box-l-article">
+                            <h4>徐衣显观摩我县返乡创业工作开展情况徐衣显观摩我县返乡创业工作开展情况徐衣显观摩我县返乡创业工作开展情况徐衣显观摩我县返乡创业工作开展情况徐衣显观摩我县返乡创业工作开展情况徐衣显观摩我县返乡创业工作开展情况徐衣显观摩我县返乡创业工作开展情况</h4>
+                            <p>12月15日，市委副书记、市长徐衣显，副市长王付举到我县观摩返乡创业工作开展情况。县委书记陈泓，县委副书记、12月15日，市委副书记、市长徐衣显，副市长王付举到我县观摩返乡创业工作开展情况。县委书记陈泓，县委副书记、县长12月15日，市委副书记、市长徐衣显，副市长王付举到我县观摩返乡创业工作开展情况。县委书记陈泓，县委副书记、县长12月15日，市委副书记、市长徐衣显，副市长王付举到我县观摩返乡创业工作开展情况。县委书记陈泓，县委副书记、县长县长张红卫。</p>
+                        </div>
+                    </div>
+                    <div class="box-r"><span class="box-r-in">2020-12-11</span></div>
+                </li>
 
-						<li>
-							<div class="box-l"><span class="box-l-img"><img src="img/box1.png" width="100%" height="100%"></span></div>
-							<div class="box-c">
-								<div class="box-l-article">
-									<h4>徐衣显观摩我县返乡创业工作开展情况</h4>
-									<p>12月15日，市委副书记、市长徐衣显，副市长王付举到我县观摩返乡创业工作开展情况。县委书记陈泓，县委副书记、县长张红卫。</p>
-								</div>
-							</div>
-							<div class="box-r"><span class="box-r-in">2020-12-11</span></div>
-						</li>
- -->
-					</ul>
-					<div class="more" ng-click="searchMore()">
-						<span>更多</span>
-					</div>
-					<div class="more" ng-if="list.length<pagination.totalItems">
-						<span>没有更多了</span>
-					</div>
-				</div>
-				<div class="erweima">
-					<img src="img/erweima.png">
-				</div>
-			</div>
+                <li>
+                    <div class="box-l"><span class="box-l-img"><img src="img/box1.png" width="100%" height="100%"></span></div>
+                    <div class="box-c">
+                        <div class="box-l-article">
+                            <h4>徐衣显观摩我县返乡创业工作开展情况</h4>
+                            <p>12月15日，市委副书记、市长徐衣显，副市长王付举到我县观摩返乡创业工作开展情况。县委书记陈泓，县委副书记、县长张红卫。</p>
+                        </div>
+                    </div>
+                    <div class="box-r"><span class="box-r-in">2020-12-11</span></div>
+                </li>
+-->
+            </ul>
+            <div class="more" ng-click="searchMore()" ng-if="list.length<pagination.totalItems">
+                <span>更多</span>
+            </div>
+            <div class="more" ng-if="list.length>=pagination.totalItems">
+                <span>没有更多了</span>
+            </div>
+        </div>
 
-		</div>
+        <div class="erweima">
+            <img src="img/erweima.png">
+        </div>
 
-		<div class="popup">
-			<div class="main popup-container">
-				<div class="logo">
-					<span><img src="img/logo.png" alt="" /></span>
-				</div>
-				<div class="logo-bg"></div>
-				<div class="main-in">
-					<div class="dt_title">
-						<span>{{entity.title}}</span>
-						<span class="time">发布时间:{{entity.hotTime|date:'yyyy-MM-dd'}}</span>
-					</div>
-					<div class="contents">
-						<p> 1、根据各地文化馆评估定级系统填报工作实际和近期新冠肺炎疫情防控形势，现将第五次全国文化馆评估定级系
-							统填报时间延期至2020年11月15日（与服务满意度测评截止时间保持一致）。请各级参评文化馆务必于11月15日之前
-							完成数据填报和佐证材料上传工作。请各省级文化和旅游行政部门及时传达至各级参评文化馆。
-						</p>
-						<br />
-						<p>2.请各省级文化和旅游行政部门做好本辖区内“不参评文化馆”的统计工作，“不参加第五次全国文化馆评估定级
-							工作的文化馆名单”提交时间同时延期到2020年11月15日。请于11月15日前将“不参评文化馆名单”纸质版报送至中
-							国文化馆协会，电子版发送至文化和旅游部公共服务司、中国文化馆协会邮箱。
-						</p>
-						<br />
-						<p> 3.于填报进度较快的省份，省级文化和旅游行政部门可以根据当地工作实际，统筹安排好评估工作进度，先行开
-							展地市级及以下参评文化馆的评估工作。
-						</p>
-					</div>
-					<div class="close popup-close">关闭</div>
-				</div>
-			</div>
+    </div>
 
-		</div>
+</div>
 
-	</body>
+<div class="popup">
+    <div class="main popup-container">
+        <div class="logo">
+            <span><img src="img/logo.png" alt=""/></span>
+        </div>
+        <div class="logo-bg"></div>
+        <div class="main-in">
+            <div class="dt_title">
+                <span>{{entity.title}}</span>
+                <span class="time">发布时间:{{entity.hotTime|date:'yyyy-MM-dd'}}</span>
+            </div>
+            <div class="contents" id="contents">
+                <p> 1、根据各地文化馆评估定级系统填报工作实际和近期新冠肺炎疫情防控形势，现将第五次全国文化馆评估定级系
+                    统填报时间延期至2020年11月15日（与服务满意度测评截止时间保持一致）。请各级参评文化馆务必于11月15日之前
+                    完成数据填报和佐证材料上传工作。请各省级文化和旅游行政部门及时传达至各级参评文化馆。
+                </p>
+                <br/>
+                <p>2.请各省级文化和旅游行政部门做好本辖区内“不参评文化馆”的统计工作，“不参加第五次全国文化馆评估定级
+                    工作的文化馆名单”提交时间同时延期到2020年11月15日。请于11月15日前将“不参评文化馆名单”纸质版报送至中
+                    国文化馆协会，电子版发送至文化和旅游部公共服务司、中国文化馆协会邮箱。
+                </p>
+                <br/>
+                <p> 3.于填报进度较快的省份，省级文化和旅游行政部门可以根据当地工作实际，统筹安排好评估工作进度，先行开
+                    展地市级及以下参评文化馆的评估工作。
+                </p>
+            </div>
+            <div class="close popup-close">关闭</div>
+        </div>
+    </div>
+
+</div>
+
+<div class="loading">
+    <img src="img/load.gif">
+</div>
+
+</body>
 </html>

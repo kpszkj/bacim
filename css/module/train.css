@@ -223,12 +223,13 @@
 }
 
 .dt_main-left {
-	float: left;
-	width: 430px;
+	width: 429px;
 	height: 336px;
 	background: url(../../img/box.png) no-repeat;
 	padding: 4px;
+	margin: 0 auto;
 }
+
 
 .dt_main-right {
 	float: left;

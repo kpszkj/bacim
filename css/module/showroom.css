@@ -225,10 +225,10 @@
 }
 
 .dt_main-img {
-	width: 80%;
-	height: 336px;
-	background: url(../../img/box.png) no-repeat;
+	width: 792px;
 	padding: 4px;
+	height: 336px;
+	background: url(../../img/box2.png) no-repeat;
 	margin: 0 auto;
 }
 
