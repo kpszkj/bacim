@@ -95,6 +95,15 @@
 	margin: 10px 0;
 	padding: 0 15px;
 }
+.area-bottom .details{
+	 text-indent: 2em;
+	 -webkit-line-clamp: 2;
+	 text-overflow: -o-ellipsis-lastline;
+	 text-overflow: ellipsis;
+	 display: -webkit-box;
+	 -webkit-box-orient: vertical;
+	 overflow: hidden;
+ }
 
 .page {
 	margin: 0 auto;
@@ -185,10 +194,11 @@
 }
 
 .dt_main-img {
-	width: 792px;
+	width: 796px;
+	height: 404px;
 	padding: 4px;
-	height: 336px;
 	background: url(../../img/box2.png) no-repeat;
+	background-size: 100% 100%;
 	margin: 0 auto;
 }
 

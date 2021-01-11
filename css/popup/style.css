@@ -1,0 +1,45 @@
+* { margin: 0; padding: 0;}
+a { text-decoration: none;}
+input { outline: none;}
+body { overflow-y: scroll;}
+
+#banner { position: relative;}
+.nav { position: absolute; left: 50%; top: 0; z-index: 2; width: 1240px; margin-left: -620px;}
+.nav .logo { float: left; padding: 28px 0;}
+.nav .logo a { display: inline-block; width: 125px; height: 24px;}
+.nav svg { width: 100%; height: 100%; vertical-align: top;}
+.gray .nav svg { fill: #00beff;}
+.white .nav svg { fill: #fff;}
+
+.nav-link { float: right; font-size: 0;}
+.nav-link li { display: inline-block; font-size: 14px;}
+.nav-link a { display: block; height: 22px; padding: 30px 20px; line-height: 22px;}
+.gray .nav-link a { color: #333;}
+.white .nav-link a { color: #fff;}
+.nav-link a:hover { color: #00b9f2;}
+
+.nav-search { position: relative; float: right; margin: 26px 0 0 10px;}
+.nav-search .key { width: 120px; height: 28px; padding: 0 33px 0 15px; border: 1px solid #999; border-radius: 20px; font-size: 12px; color: #333;}
+.nav-search .dwo { position: absolute; left: 146px; top: 7px; width: 17px; height: 14px; cursor: pointer;}
+.nav-search .my { display: inline-block; width: 30px; height: 30px; margin: 0 8px; vertical-align: top; background-size: cover;}
+.nav-search .cart { display: inline-block; width: 30px; height: 30px; vertical-align: top; background-size: cover;}
+
+.gray .nav-search .my { background-image: url(../images/user-gray.png);}
+.white .nav-search .my { background-image: url(../images/user-white.png);}
+.gray .nav-search .cart { background-image: url(../images/shopping-cart-gray.png);}
+.white .nav-search .cart { background-image: url(../images/shopping-cart-white.png);}
+
+.swiper-container { z-index: 9999;}
+.swiper-slide { background-position: 50% 0;}
+.swiper-slide a { display: block; height: 670px;}
+.swiper-container-horizontal > .swiper-pagination-bullets { bottom: 24px;}
+
+.swiper-pagination-bullet { width: 6px; height: 6px; border-width: 1px; border-style: solid; opacity: 1;}
+
+.gray .swiper-pagination-bullet { border-color: #666; background-color: #666;}
+.gray .swiper-pagination-bullet-active { background-color: transparent;}
+
+.white .swiper-pagination-bullet { border-color: #fff; background-color: #fff;}
+.white .swiper-pagination-bullet-active { background-color: transparent;}
+
+.swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet { margin: 0 8px;}

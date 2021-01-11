@@ -1,0 +1,190 @@
+.section {
+	position: relative;
+	width: 1080px;
+	height: 1920px;
+	background-image: url(../../img/body-bg.png);
+	background-repeat: no-repeat;
+}
+.search{
+	background: #FFFFFF;
+	height: 46px;
+	line-height: 46px;
+	width: 280px;
+	float: right;
+	margin-right: 60px;
+	border-radius: 2px;
+	border: 1px solid #d5b085;
+}
+.search input{
+	height: 46px;
+	line-height: 46px;
+	border: none;
+	background: #FFFFFF;
+	float: left;
+	padding-left: 10px;
+	width: 210px;
+}
+.search button{
+	float: left;
+	width: 60px;
+	height: 46px;
+	border: none;
+	background: url(../../img/search.png) no-repeat;
+}
+.section-index {
+	width: 85%;
+	margin: 0 auto;
+	padding-top: 430px;
+}
+
+.top {
+	border-bottom: 1px solid #d5b085;
+	margin: 0 auto;
+	padding: 10px 0;
+	overflow: hidden;
+}
+
+.top-l {
+	background: url(../../img/realtimeInfo.png);
+	display: inline-block;
+	width: 249px;
+	height: 50px;
+	color: #FFFFFF;
+	text-align: center;
+	line-height: 50px;
+	font-size: 20px;
+	float: left;
+}
+
+.top-r {
+	background: url(../../img/return.png) 20px center no-repeat #f4f1ea;
+	padding-left: 50px;
+	border: 1px solid #d5b085;
+	width: 60px;
+	height: 40px;
+	line-height: 40px;
+	display: inline-block;
+	border-radius: 6px;
+	float: right;
+}
+
+.box {
+	overflow-y: auto;
+	padding-bottom: 170px;
+	max-height: 870px;
+}
+
+.box ul {
+	margin: 0 auto;
+}
+
+.box ul li {
+	background: #FFFFFF;
+	height: 160px;
+	margin-top: 20px;
+}
+
+.box-l-img {
+	float: left;
+}
+
+.box-l-img img {
+	display: block;
+	width: 160px;
+	max-width: 100%;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.box ul li p {
+	line-height: 25px;
+	margin-top: 15px;
+}
+
+.box-l-article {
+	padding-top: 35px;
+	padding-left: 20px;
+}
+
+.box-l {
+	float: left;
+	width: 160px;
+}
+
+.box-c {
+	width: 550px;
+	float: left;
+	height: 160px;
+	overflow: hidden;
+
+}
+
+.box-c h4 {
+	color: #563921;
+}
+
+.box-l span {
+	display: inline-block;
+	height: 160px;
+}
+
+.box-r {
+	width: 140px;
+	float: right;
+}
+
+.box-r-in {
+	display: block;
+	text-align: right;
+	line-height: 160px;
+	color: #333;
+	opacity: .7;
+	padding-right: 20px;
+	font-size: 18px;
+	background: url(../../img/more.png) no-repeat right center;
+	margin-right: 20px;
+	color: #666666;
+}
+
+.title {
+	overflow: hidden;
+}
+
+.title ul {
+	margin: 20px 0 0 0px;
+}
+
+.title ul li {
+	float: left;
+	background: #FFFFFF;
+	border-radius: 4px;
+	width: 120px;
+	height: 40px;
+	border-radius: 5px;
+	margin-right: 20px;
+	text-align: center;
+	line-height: 40px;
+	border: 1px solid #d5b085;
+	color: #654d3b;
+}
+
+.more {
+	padding-left: 12px;
+}
+
+.more span {
+	display: block;
+	background: #FFFFFF;
+	height: 45px;
+	line-height: 45px;
+	text-align: center;
+	margin-top: 20px;
+}
+
+.erweima {
+	width: 129px;
+	height: 170px;
+	position: absolute;
+	bottom: 100px;
+	right: 100px;
+}

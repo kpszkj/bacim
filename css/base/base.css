@@ -48,13 +48,13 @@ button {
 }
 
 .loading {
-	display: none;
+    //display: none;
     position: fixed;
-	top: 50%;
-	left:50%;
-	margin-left: -167px;
-	margin-top: -57px;
-	z-index: 9999;
+    top: 50%;
+    left: 50%;
+    margin-left: -167px;
+    margin-top: -57px;
+    z-index: 9999;
 }
 
 /* 盒子宽高，边距 */

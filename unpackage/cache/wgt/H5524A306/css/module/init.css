@@ -2,7 +2,9 @@ main{
 	position: relative;
 	width: 1080px;
 	height: 1920px;
+	overflow: hidden;
 	background-image: url(../../img/init.png);
+	background-size: 1080px 1920px;
 	background-repeat: no-repeat;
 }
 

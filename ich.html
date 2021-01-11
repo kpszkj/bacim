@@ -1,152 +1,213 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 
-	<head>
-		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-		<link rel="stylesheet" href="css/base/base.css">
-		<link rel="stylesheet" type="text/css" href="css/module/ich.css">
-		<link rel="stylesheet" href="css/popup/popup.css">
-		<title></title>
-		<!-- 引入js -->
-		<script src="js/jquery/jquery.min.js"></script>
-		<script src="js/config/common.js"></script>
-		<script src="js/config/config.js"></script>
-		<script src="js/popup/popup.js"></script>
-	</head>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" href="css/base/base.css">
+    <link rel="stylesheet" type="text/css" href="css/module/ich.css">
+    <link rel="stylesheet" href="css/popup/popup.css">
+    <link rel="stylesheet" href="css/popup/swiper.min.css">
+    <title></title>
+    <!-- 引入js -->
+    <script src="js/jquery/jquery.min.js"></script>
+    <script src="js/config/common.js"></script>
+    <script src="js/config/config.js"></script>
+    <script src="js/popup/popup.js"></script>
+    <script src="js/popup/swiper.min.js"></script>
+    <!--angularjs组件-->
+    <script src="plugins/angularjs/angular.min.js"></script>
+    <!--引入baseApp-->
+    <script src="js/angular/app/baseApp.js"></script>
+    <script src="js/angular/app/baseController.js"></script>
+    <script src="js/angular/ich/ichService.js"></script>
+    <script src="js/angular/ich/ichController.js"></script>
 
-	<body>
-		<div class="main">
-			<div class="main-index">
-				<div class="top">
-					<span class="top-l">非遗资源</span>
-					<span class="top-r">返回</span>
-				</div>
-				<div class="ich-bg">
-					<p>国务院先后于2006年、2008年、2011年和2014年公布了四批国家级非物质文化遗产代表性项目名录，共计
-						1372个国家级非物质文化遗产代表性项目，按照申报地区或单位进行逐一统计，共计3154个子项。截止目前，我省
-						入选国家级非物质文化遗产代表性名录项目116项，保护单位168个，居全国第三。省级非物质文化遗产代表性名录
-						项目537项、保护单位942个。2007年、2008年、2009年、2012年、2018年，国家文化主管部门先后命名了五批
-						国家级非物质文化遗产代表性项目代表性传承人，共计3068人。</p>
-				</div>
-				<div class="main-in">
-					<ul id="popup">
-						<li>
-							<div class="area">
-								<div class="area-top"><img src="img/img1.png" alt="" width="100%" height="100%" /></div>
-								<div class="area-bottom">
-									<div class="title">砂锅烧制技艺</div>
-									<div class="details"> 阳城“安阳砂锅”制作技艺是祖先数百年来传承下来的砂锅手工烧铸方法，它为了解 ...</div>
-								</div>
-							</div>
-						</li>
-						<li>
-							<div class="area">
-								<div class="area-top"><img src="img/img1.png" alt="" width="100%" height="100%" /></div>
-								<div class="area-bottom">
-									<div class="title">砂锅烧制技艺</div>
-									<div class="details"> 阳城“安阳砂锅”制作技艺是祖先数百年来传承下来的砂锅手工烧铸方法，它为了解 ...</div>
-								</div>
-							</div>
-						</li>
-						<li>
-							<div class="area">
-								<div class="area-top"><img src="img/img1.png" alt="" width="100%" height="100%" /></div>
-								<div class="area-bottom">
-									<div class="title">砂锅烧制技艺</div>
-									<div class="details"> 阳城“安阳砂锅”制作技艺是祖先数百年来传承下来的砂锅手工烧铸方法，它为了解 ...</div>
-								</div>
-							</div>
-						</li>
-						<li>
-							<div class="area">
-								<div class="area-top"><img src="img/img1.png" alt="" width="100%" height="100%" /></div>
-								<div class="area-bottom">
-									<div class="title">砂锅烧制技艺</div>
-									<div class="details"> 阳城“安阳砂锅”制作技艺是祖先数百年来传承下来的砂锅手工烧铸方法，它为了解 ...</div>
-								</div>
-							</div>
-						</li>
-						<li>
-							<div class="area">
-								<div class="area-top"><img src="img/img1.png" alt="" width="100%" height="100%" /></div>
-								<div class="area-bottom">
-									<div class="title">砂锅烧制技艺</div>
-									<div class="details"> 阳城“安阳砂锅”制作技艺是祖先数百年来传承下来的砂锅手工烧铸方法，它为了解 ...</div>
-								</div>
-							</div>
-						</li>
-						<li>
-							<div class="area">
-								<div class="area-top"><img src="img/img1.png" alt="" width="100%" height="100%" /></div>
-								<div class="area-bottom">
-									<div class="title">砂锅烧制技艺</div>
-									<div class="details"> 阳城“安阳砂锅”制作技艺是祖先数百年来传承下来的砂锅手工烧铸方法，它为了解 ...</div>
-								</div>
-							</div>
-						</li>
-						<li>
-							<div class="area">
-								<div class="area-top"><img src="img/img1.png" alt="" width="100%" height="100%" /></div>
-								<div class="area-bottom">
-									<div class="title">砂锅烧制技艺</div>
-									<div class="details"> 阳城“安阳砂锅”制作技艺是祖先数百年来传承下来的砂锅手工烧铸方法，它为了解 ...</div>
-								</div>
-							</div>
-						</li>
-						<li>
-							<div class="area">
-								<div class="area-top"><img src="img/img1.png" alt="" width="100%" height="100%" /></div>
-								<div class="area-bottom">
-									<div class="title">砂锅烧制技艺</div>
-									<div class="details"> 阳城“安阳砂锅”制作技艺是祖先数百年来传承下来的砂锅手工烧铸方法，它为了解 ...</div>
-								</div>
-							</div>
-						</li>
-						<li>
-							<div class="area">
-								<div class="area-top"><img src="img/img1.png" alt="" width="100%" height="100%" /></div>
-								<div class="area-bottom">
-									<div class="title">砂锅烧制技艺</div>
-									<div class="details"> 阳城“安阳砂锅”制作技艺是祖先数百年来传承下来的砂锅手工烧铸方法，它为了解 ...</div>
-								</div>
-							</div>
-						</li>
-					</ul>
-				</div>
-				<div class="page">
-					<span><img src="img/left.png" alt="" /></span>
-					<span><img src="img/right.png" alt="" /></span>
-				</div>
-				<div class="erweima">
-					<img src="img/erweima.png">
-				</div>
-			</div>
+</head>
 
-			<div class="popup">
-				<div class="dt_main popup-container">
-					<div class="logo">
-						<span><img src="img/logo.png" alt="" /></span>
-					</div>
-					<div class="logo-bg"></div>
-					<div class="dt_main-in">
-						<div class="dt_main-top">
-							<div class="dt_main-img">
-								<img src="img/box1.png" alt="" width="100%" height="100%" />
-							</div>
-							<div class="view">滑动左右观看</div>
-						</div>
-						<div id="contents" class="contents">
-							<p> <em>珐花</em> 原名“粉花”，又名“珐华”或“法花”，盛行于明代，常见器物有较大的瓶、罐、炉以及佛前供品等。山西
-								曾是珐花陶器的主要产地，历史上蒲州、霍州、文水、平遥、阳城、介休、榆次、太原、朔州、代县、清源、临汾等地
-								均有烧造记录。根据史料记载，元代开始晋南地区即可生产一种低温彩釉珐花陶器，明代较为盛行，清中后期技艺失传。</p>
-						</div>
-						<div class="close popup-close">关闭</div>
-					</div>
+<body ng-app="bacim" ng-controller="ichController" ng-init="init()">
+<div class="main">
+    <div class="main-index">
+        <div class="top">
+            <span class="top-l">非遗资源</span>
+            <span class="top-r" onclick="back()">返回</span>
+        </div>
+        <div class="ich-bg">
+            <p>
+                国务院先后于2006年、2008年、2011年和2014年公布了四批国家级非物质文化遗产代表性项目名录，共计
+                1372个国家级非物质文化遗产代表性项目，按照申报地区或单位进行逐一统计，共计3154个子项。截止目前，我省
+                入选国家级非物质文化遗产代表性名录项目116项，保护单位168个，居全国第三。省级非物质文化遗产代表性名录
+                项目537项、保护单位942个。2007年、2008年、2009年、2012年、2018年，国家文化主管部门先后命名了五批
+                国家级非物质文化遗产代表性项目代表性传承人，共计3068人。
+            </p>
+        </div>
+        <div id="main" style="display: none">
 
-				</div>
-			</div>
+            <div class="main-in">
+                <ul id="popup">
+                    <li ng-repeat="pojo in list" ng-click="findDetail(pojo.id)">
+                        <div class="area">
+                            <div class="area-top">
+                                <img src="{{pojo.img}}" alt="" width="100%" height="100%"/>
+                            </div>
+                            <div class="area-bottom">
+                                <div class="title">{{pojo.title}}</div>
+                                <div class="details"> {{pojo.description}}</div>
+                            </div>
+                        </div>
+                    </li>
+                    <!--<li>
+                        <div class="area">
+                            <div class="area-top"><img src="img/img1.png" alt="" width="100%" height="100%"/></div>
+                            <div class="area-bottom">
+                                <div class="title">砂锅烧制技艺</div>
+                                <div class="details"> 阳城“安阳砂锅”制作技艺是祖先数百年来传承下来的砂锅手工烧铸方法，它为了解 ...</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="area">
+                            <div class="area-top"><img src="img/img1.png" alt="" width="100%" height="100%"/></div>
+                            <div class="area-bottom">
+                                <div class="title">砂锅烧制技艺</div>
+                                <div class="details"> 阳城“安阳砂锅”制作技艺是祖先数百年来传承下来的砂锅手工烧铸方法，它为了解 ...</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="area">
+                            <div class="area-top"><img src="img/img1.png" alt="" width="100%" height="100%"/></div>
+                            <div class="area-bottom">
+                                <div class="title">砂锅烧制技艺</div>
+                                <div class="details"> 阳城“安阳砂锅”制作技艺是祖先数百年来传承下来的砂锅手工烧铸方法，它为了解 ...</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="area">
+                            <div class="area-top"><img src="img/img1.png" alt="" width="100%" height="100%"/></div>
+                            <div class="area-bottom">
+                                <div class="title">砂锅烧制技艺</div>
+                                <div class="details"> 阳城“安阳砂锅”制作技艺是祖先数百年来传承下来的砂锅手工烧铸方法，它为了解 ...</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="area">
+                            <div class="area-top"><img src="img/img1.png" alt="" width="100%" height="100%"/></div>
+                            <div class="area-bottom">
+                                <div class="title">砂锅烧制技艺</div>
+                                <div class="details"> 阳城“安阳砂锅”制作技艺是祖先数百年来传承下来的砂锅手工烧铸方法，它为了解 ...</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="area">
+                            <div class="area-top"><img src="img/img1.png" alt="" width="100%" height="100%"/></div>
+                            <div class="area-bottom">
+                                <div class="title">砂锅烧制技艺</div>
+                                <div class="details"> 阳城“安阳砂锅”制作技艺是祖先数百年来传承下来的砂锅手工烧铸方法，它为了解 ...</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="area">
+                            <div class="area-top"><img src="img/img1.png" alt="" width="100%" height="100%"/></div>
+                            <div class="area-bottom">
+                                <div class="title">砂锅烧制技艺</div>
+                                <div class="details"> 阳城“安阳砂锅”制作技艺是祖先数百年来传承下来的砂锅手工烧铸方法，它为了解 ...</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="area">
+                            <div class="area-top"><img src="img/img1.png" alt="" width="100%" height="100%"/></div>
+                            <div class="area-bottom">
+                                <div class="title">砂锅烧制技艺</div>
+                                <div class="details"> 阳城“安阳砂锅”制作技艺是祖先数百年来传承下来的砂锅手工烧铸方法，它为了解 ...</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="area">
+                            <div class="area-top"><img src="img/img1.png" alt="" width="100%" height="100%"/></div>
+                            <div class="area-bottom">
+                                <div class="title">砂锅烧制技艺</div>
+                                <div class="details"> 阳城“安阳砂锅”制作技艺是祖先数百年来传承下来的砂锅手工烧铸方法，它为了解 ...</div>
+                            </div>
+                        </div>
+                    </li>-->
+                </ul>
 
-		</div>
-	</body>
+
+                <div class="page">
+                    <span ng-if="pagination.pageNum>1" ng-click="search(pagination.pageNum-1)">
+						<img src="img/left.png" alt=""/>
+					</span>
+                    <span ng-if="pagination.pageNum<pagination.totalPages" ng-click="search(pagination.pageNum+1)">
+						<img src="img/right.png" alt=""/>
+					</span>
+                    <span onclick="alert('已经是第一页了')"><img src="img/left.png" alt=""/></span>
+                    <span onclick="alert('已经是最后一页了')"><img src="img/right.png" alt=""/></span>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="erweima">
+            <img src="img/erweima.png">
+        </div>
+    </div>
+
+    <div class="popup">
+        <div class="dt_main popup-container">
+            <div class="logo">
+                <span><img src="img/logo.png" alt=""/></span>
+            </div>
+            <div class="logo-bg"></div>
+            <div class="dt_main-in">
+                <div class="dt_main-top">
+                    <!--<div class="dt_main-img">
+                        <img src="{{entity.img}}" alt="" width="100%" height="100%"/>
+                    </div>
+                    <div class="view">滑动左右观看</div>-->
+                    <div class="dt_main-img">
+                        <div class="swiper-container">
+
+                            <div class="swiper-wrapper">
+
+                                <!-- <div class="swiper-slide swiper-lazy" data-background="{{entity.img}}" data-theme="gray">
+                                     <a href="javascript:"></a>
+                                 </div>-->
+
+                            </div>
+                        </div>
+                        <!--<img src="{{entity.img}}" alt="" width="100%" height="100%"/>-->
+                    </div>
+
+                    <div class="view">滑动左右观看</div>
+                </div>
+                <div id="contents" class="contents">
+                    <p>
+                        <em>{{entity.title}}</em>
+                        <!--原名“粉花”，又名“珐华”或“法花”，盛行于明代，常见器物有较大的瓶、罐、炉以及佛前供品等。山西
+                        曾是珐花陶器的主要产地，历史上蒲州、霍州、文水、平遥、阳城、介休、榆次、太原、朔州、代县、清源、临汾等地
+                        均有烧造记录。根据史料记载，元代开始晋南地区即可生产一种低温彩釉珐花陶器，明代较为盛行，清中后期技艺失传。-->
+                    <P style="max-height: 480px;overflow-y: auto">{{entity.description}}{{entity.description}}</P>
+                    </p>
+                </div>
+                <div class="close popup-close">关闭</div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="loading">
+        <img src="img/load.gif">
+    </div>
+
+</div>
+</body>
 
 </html>

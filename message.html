@@ -1,73 +1,115 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 
-	<head>
-		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-		<link rel="stylesheet" type="text/css" href="css/module/message.css">
-		<link rel="stylesheet" href="css/base/base.css">
-		<title></title>
-		<!-- 引入js -->
-		<script src="js/jquery/jquery.min.js"></script>
-		<script src="js/config/common.js"></script>
-		<script src="js/config/config.js"></script>
-	</head>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/module/message.css">
+    <link rel="stylesheet" href="css/base/base.css">
+    <title></title>
+    <!-- 引入js -->
+    <script src="js/jquery/jquery.min.js"></script>
+    <script src="js/config/common.js"></script>
+    <script src="js/config/config.js"></script>
+    <script src="js/popup/popup.js"></script>
 
-	<body>
-		<div class="main">
-			<div class="main-index">
-				<div class="top">
-					<span class="top-l">咨询辅导</span>
-					<span class="top-r">返回</span>
-				</div>
-				<div class="ich-bg">
-					<textarea rows="2" cols="20" placeholder="请在此处输入您的留言..."></textarea>
-				</div>
-				<div class="main-in">
-					<div class="message">
-						留言板
-					</div>
-					<ul>
-						<li>
-							<div class="title">
-								<span class="name">匿名用户1 </span> <span class="date">2018/03/23</span>
-							</div>
-							<p>希望平台能多提供一下文化资源; 希望平台能多提供一下文化资源; 希望平台能多提供一下文化资源; 希望平台能多
-								提供一下文化资源; 希望平台能多提供一下文化资源; 希望平台能多提供一下文化资源; 希望平台能多提供一下文化
-								资源; 希望平台能多提供一下文化资源; 希望平台能多提供一下文化资源; </p>
-							<div class="reply">
-								回复:希望平台能多提供一下文化资源; 希望平台能多提供一下文化资源; 希望平台能多提供一下文化资源; 希望平台能多
-								提供一下文化资源; 希望平台能多提供一下文化资源; 希望平台能多提供一下文化资源; 希望平台能多提供一下文化
-								资源; 希望平台能多提供一下文化资源; 希望平台能多提供一下文化资源;
-							</div>
-						</li>
-						<li>
-							<div class="title">
-								<span class="name">匿名用户2 </span> <span class="date">2018/03/23</span>
-							</div>
-							<p>希望平台能多提供一下文化资源; 希望平台能多提供一下文化资源; 希望平台能多提供一下文化资源; 希望平台能多
-								提供一下文化资源; 希望平台能多提供一下文化资源; 希望平台能多提供一下文化资源; 希望平台能多提供一下文化
-								资源; 希望平台能多提供一下文化资源; 希望平台能多提供一下文化资源; </p>
-							<div class="reply">
-								回复:希望平台能多提供一下文化资源; 希望平台能多提供一下文化资源; 希望平台能多提供一下文化资源; 希望平台能多
-								提供一下文化资源; 希望平台能多提供一下文化资源; 希望平台能多提供一下文化资源; 希望平台能多提供一下文化
-								资源; 希望平台能多提供一下文化资源; 希望平台能多提供一下文化资源;
-							</div>
-						</li>
-						<li>
-							<div class="title">
-								<span class="name">匿名用户3 </span> <span class="date">2018/03/23</span>
-							</div>
-							<p>希望平台能多提供一下文化资源; 希望平台能多提供一下文化资源; 希望平台能多提供一下文化资源; 希望平台能多
-								提供一下文化资源; 希望平台能多提供一下文化资源; 希望平台能多提供一下文化资源; 希望平台能多提供一下文化
-								资源; 希望平台能多提供一下文化资源; 希望平台能多提供一下文化资源; </p>
-						</li>
-					</ul>
-				</div>
-				<div class="erweima">
-					<img src="img/erweima.png">
-				</div>
-			</div>
-		</div>
-	</body>
+    <!--angularjs组件-->
+    <script src="plugins/angularjs/angular.min.js"></script>
+    <!--引入baseApp-->
+    <script src="js/angular/app/baseApp.js"></script>
+    <script src="js/angular/app/baseController.js"></script>
+    <script src="js/angular/message/messageService.js"></script>
+    <script src="js/angular/message/messageController.js"></script>
+</head>
+
+<body ng-app="bacim" ng-controller="messageController" ng-init="init()">
+<div class="main">
+    <div class="main-index">
+        <div class="top">
+            <span class="top-l">咨询辅导</span>
+            <span class="top-r">返回</span>
+        </div>
+        <div class="ich-bg">
+            <textarea id="info" rows="2" cols="20" placeholder="请在此处输入您的留言..."></textarea>
+        </div>
+        <div class="close" ng-click="leaveMessage()">留言</div>
+        <div class="main-in">
+            <div class="message">
+                留言板
+            </div>
+            <ul>
+                <li ng-repeat="pojo in list">
+                    <div class="title">
+                        <span class="name">{{pojo.name}}</span> <span
+                            class="date">{{pojo.hotTime|date:'yyyy-MM-dd'}}</span>
+                    </div>
+                    <p>
+                        {{pojo.message}}
+                    </p>
+                    <div class="reply">
+                        回复：{{pojo.response}}
+                    </div>
+                </li>
+                <!--<li>
+                    <div class="title">
+                        <span class="name">匿名用户1 </span> <span class="date">2018/03/23</span>
+                    </div>
+                    <p>希望平台能多提供一下文化资源; 希望平台能多提供一下文化资源; 希望平台能多提供一下文化资源; 希望平台能多
+                        提供一下文化资源; 希望平台能多提供一下文化资源; 希望平台能多提供一下文化资源; 希望平台能多提供一下文化
+                        资源; 希望平台能多提供一下文化资源; 希望平台能多提供一下文化资源; </p>
+                    <div class="reply">
+                        回复:希望平台能多提供一下文化资源; 希望平台能多提供一下文化资源; 希望平台能多提供一下文化资源; 希望平台能多
+                        提供一下文化资源; 希望平台能多提供一下文化资源; 希望平台能多提供一下文化资源; 希望平台能多提供一下文化
+                        资源; 希望平台能多提供一下文化资源; 希望平台能多提供一下文化资源;
+                    </div>
+                </li>
+                <li>
+                    <div class="title">
+                        <span class="name">匿名用户2 </span> <span class="date">2018/03/23</span>
+                    </div>
+                    <p>希望平台能多提供一下文化资源; 希望平台能多提供一下文化资源; 希望平台能多提供一下文化资源; 希望平台能多
+                        提供一下文化资源; 希望平台能多提供一下文化资源; 希望平台能多提供一下文化资源; 希望平台能多提供一下文化
+                        资源; 希望平台能多提供一下文化资源; 希望平台能多提供一下文化资源; </p>
+                    <div class="reply">
+                        回复:希望平台能多提供一下文化资源; 希望平台能多提供一下文化资源; 希望平台能多提供一下文化资源; 希望平台能多
+                        提供一下文化资源; 希望平台能多提供一下文化资源; 希望平台能多提供一下文化资源; 希望平台能多提供一下文化
+                        资源; 希望平台能多提供一下文化资源; 希望平台能多提供一下文化资源;
+                    </div>
+                </li>
+                <li>
+                    <div class="title">
+                        <span class="name">匿名用户3 </span> <span class="date">2018/03/23</span>
+                    </div>
+                    <p>希望平台能多提供一下文化资源; 希望平台能多提供一下文化资源; 希望平台能多提供一下文化资源; 希望平台能多
+                        提供一下文化资源; 希望平台能多提供一下文化资源; 希望平台能多提供一下文化资源; 希望平台能多提供一下文化
+                        资源; 希望平台能多提供一下文化资源; 希望平台能多提供一下文化资源; </p>
+                </li>-->
+                <li>
+                    <div class="nodata" ng-click="searchMore()" ng-if="list.length<pagination.totalItems">
+                        <span style="background: #d5b085;color: #ffffff;padding: 10px 20px;margin-top: 20px">更多留言</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="nodata" ng-if="list.length!=0&&list.length>=pagination.totalItems">
+                        <span>没有更多了</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="nodata" ng-if="list.length==0">
+                        <span>暂无留言</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="erweima">
+            <img src="img/erweima.png">
+        </div>
+    </div>
+</div>
+
+<div class="loading">
+    <img src="img/load.gif">
+</div>
+</body>
 
 </html>
