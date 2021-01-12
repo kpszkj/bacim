@@ -10,6 +10,21 @@ $(function () {
     popup = function () {
         $('.popup').addClass('visible');
     }
+    popup1 = function () {
+        $('#popup1').addClass('visible');
+    }
+    popup2 = function () {
+        $('#popup2').addClass('visible');
+    }
+    popup3 = function () {
+        $('#popup3').addClass('visible');
+    }
+    popup4 = function () {
+        $('#popup4').addClass('visible');
+    }
+    popup5 = function () {
+        $('#popup5').addClass('visible');
+    }
 
     //关闭窗口
     $('.popup').on('click', function (event) {

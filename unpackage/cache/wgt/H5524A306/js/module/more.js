@@ -1,23 +1,16 @@
 var ws = null,
 	embed = null;
 // 扩展API加载完毕，现在可以正常调用扩展API
-function plusReady() {
-	//监听返回键
-	plus.key.addEventListener('backbutton', function() {
-		back();
-	}, false);
-	ws = plus.webview.currentWebview();
-	setTimeout(createEmbed, 500); //延迟创建子窗口避免影响窗口动画
-}
-// 判断扩展API是否准备，否则监听plusready事件
-if (window.plus) {
-	plusReady();
-} else {
-	document.addEventListener('plusready', plusReady, false);
-}
+
 // 创建子Webview
-function createEmbed(url) {
-	var url = url || 'http://app.fqxwhy.cn/';
+function createEmbed(type) {
+	//var url = url || 'http://app.fqxwhy.cn/';
+	var url;
+	if (type == 1) {
+		url = "http://baapp.kpszkj.cn";
+	} else if (type == 2) {
+		url = "http://app.baxwhy.cn";
+	}
 	var topoffset = '44px';
 	plus.nativeUI.showWaiting('', {
 		style: 'black',

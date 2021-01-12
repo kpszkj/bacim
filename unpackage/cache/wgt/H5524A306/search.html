@@ -1,195 +1,392 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title></title>
+<head>
+    <meta charset="utf-8">
+    <title></title>
 
-		<!-- 引入css -->
-		<link rel="stylesheet" href="css/base/base.css">
-		<link rel="stylesheet" href="css/module/search.css">
-		<link rel="stylesheet" href="css/popup/popup.css">
-		<!-- 引入js -->
-		<script src="js/jquery/jquery.min.js"></script>
-		<script src="js/config/common.js"></script>
-		<script src="js/config/config.js"></script>
-	</head>
-	<body>
-		<div class="section">
-			<div class="section-index">
-				<div class="top">
-					<span class="top-l">资讯动态</span>
-					<span class="top-r">返回</span>
-					<span class="search">
-						<input type="" name="" id="" value="" placeholder="请输入查询内容"/>
-					<button type="button"></button>
+    <!-- 引入css -->
+    <link rel="stylesheet" href="css/base/base.css">
+    <link rel="stylesheet" href="css/module/search.css">
+    <link rel="stylesheet" href="css/popup/popup.css">
+    <link rel="stylesheet" href="css/popup/swiper.min.css">
+    <!-- 引入js -->
+    <script src="js/jquery/jquery.min.js"></script>
+    <script src="js/config/common.js"></script>
+    <script src="js/config/config.js"></script>
+    <script src="js/popup/popup.js"></script>
+    <script src="js/popup/swiper.min.js"></script>
+    <!--angularjs组件-->
+    <script src="plugins/angularjs/angular.min.js"></script>
+    <!--引入baseApp-->
+    <script src="js/angular/app/baseApp.js"></script>
+    <script src="js/angular/app/baseController.js"></script>
+
+    <script src="js/angular/search/searchService.js"></script>
+    <script src="js/angular/realtimeinfo/realtimeinfoService.js"></script>
+    <script src="js/angular/train/trainService.js"></script>
+    <script src="js/angular/celebrity/celebrityService.js"></script>
+    <script src="js/angular/showroom/showroomService.js"></script>
+    <script src="js/angular/ich/ichService.js"></script>
+    <script src="js/angular/search/searchController.js"></script>
+</head>
+<body ng-app="bacim" ng-controller="searchController" ng-init="init()">
+<div class="section">
+    <div class="section-index">
+        <div class="top">
+            <span class="top-l">资讯动态</span>
+            <span class="top-r" onclick="back()">返回</span>
+            <span class="search">
+						<input type="" id="title" ng-model="searchEntity.title" placeholder="请输入查询关键字"/>
+					<button type="button" id="search"></button>
 					</span>
 
-				</div>
-				<div class="title">
-					<ul>
-						<li>资讯动态</li>
-						<li>资讯动态</li>
-						<li>资讯动态</li>
-						<li>资讯动态</li>
-						<li>资讯动态</li>
-					</ul>
-				</div>
-				<div class="box">
-					<ul id="popup">
-						<li>
-							<div class="box-l"><span class="box-l-img"><img src="img/box1.png" width="100%" height="100%"></span></div>
-							<div class="box-c">
-								<div class="box-l-article">
-									<h4>徐衣显观摩我县返乡创业工作开展情况</h4>
-									<p>12月15日，市委副书记、市长徐衣显，副市长王付举到我县观摩返乡创业工作开展情况。县委书记陈泓，县委副书记、县长张红卫。</p>
-								</div>
-							</div>
-							<div class="box-r"><span class="box-r-in">2020-12-11</span></div>
-						</li>
+        </div>
 
-						<li>
-							<div class="box-l"><span class="box-l-img"><img src="img/box1.png" width="100%" height="100%"></span></div>
-							<div class="box-c">
-								<div class="box-l-article">
-									<h4>徐衣显观摩我县返乡创业工作开展情况</h4>
-									<p>12月15日，市委副书记、市长徐衣显，副市长王付举到我县观摩返乡创业工作开展情况。县委书记陈泓，县委副书记、县长张红卫。</p>
-								</div>
-							</div>
-							<div class="box-r"><span class="box-r-in">2020-12-11</span></div>
-						</li>
+        <div id="all" style="display: none">
+            <div class="info">{{info}}</div>
+            <div class="title">
+                <ul>
+                    <li ng-if="searchEntity.type==0" class="active">全部</li>
+                    <li ng-if="searchEntity.type!=0" ng-click="setType(0)">全部</li>
 
-						<li>
-							<div class="box-l"><span class="box-l-img"><img src="img/box1.png" width="100%" height="100%"></span></div>
-							<div class="box-c">
-								<div class="box-l-article">
-									<h4>徐衣显观摩我县返乡创业工作开展情况</h4>
-									<p>12月15日，市委副书记、市长徐衣显，副市长王付举到我县观摩返乡创业工作开展情况。县委书记陈泓，县委副书记、县长张红卫。</p>
-								</div>
-							</div>
-							<div class="box-r"><span class="box-r-in">2020-12-11</span></div>
-						</li>
+                    <li ng-if="searchEntity.type==1" class="active">文化资讯</li>
+                    <li ng-if="searchEntity.type!=1" ng-click="setType(1)">文化资讯</li>
 
-						<li>
-							<div class="box-l"><span class="box-l-img"><img src="img/box1.png" width="100%" height="100%"></span></div>
-							<div class="box-c">
-								<div class="box-l-article">
-									<h4>徐衣显观摩我县返乡创业工作开展情况</h4>
-									<p>12月15日，市委副书记、市长徐衣显，副市长王付举到我县观摩返乡创业工作开展情况。县委书记陈泓，县委副书记、县长张红卫。</p>
-								</div>
-							</div>
-							<div class="box-r"><span class="box-r-in">2020-12-11</span></div>
-						</li>
+                    <li ng-if="searchEntity.type==2" class="active">公益培训</li>
+                    <li ng-if="searchEntity.type!=2" ng-click="setType(2)">公益培训</li>
 
+                    <li ng-if="searchEntity.type==3" class="active">艺术展厅</li>
+                    <li ng-if="searchEntity.type!=3" ng-click="setType(3)">艺术展厅</li>
 
-						<li>
-							<div class="box-l"><span class="box-l-img"><img src="img/box1.png" width="100%" height="100%"></span></div>
-							<div class="box-c">
-								<div class="box-l-article">
-									<h4>徐衣显观摩我县返乡创业工作开展情况</h4>
-									<p>12月15日，市委副书记、市长徐衣显，副市长王付举到我县观摩返乡创业工作开展情况。县委书记陈泓，县委副书记、县长张红卫。</p>
-								</div>
-							</div>
-							<div class="box-r"><span class="box-r-in">2020-12-11</span></div>
-						</li>
+                    <li ng-if="searchEntity.type==4" class="active">文史名人</li>
+                    <li ng-if="searchEntity.type!=4" ng-click="setType(4)">文史名人</li>
 
+                    <li ng-if="searchEntity.type==5" class="active">非遗资源</li>
+                    <li ng-if="searchEntity.type!=5" ng-click="setType(5)">非遗资源</li>
+                </ul>
+            </div>
+            <div class="box" id="main">
+                <ul id="popup">
+                    <li ng-repeat="pojo in list" ng-click="findDetail(pojo.id,pojo.type)">
+                        <div class="box-l">
+						<span class="box-l-img">
+							<img src="{{pojo.img}}" width="100%" height="100%"></span></div>
+                        <div class="box-c">
+                            <div class="box-l-article">
+                                <h4 style="overflow: hidden;text-overflow:ellipsis;white-space: nowrap;">{{pojo.title}}</h4>
+                                <p>{{pojo.description}}</p>
+                            </div>
+                        </div>
+                        <div class="box-r">
+						<span class="box-r-in">
+							<span ng-if="pojo.type==1">文化资讯</span>
+							<span ng-if="pojo.type==2">公益培训</span>
+							<span ng-if="pojo.type==3">艺术展厅</span>
+							<span ng-if="pojo.type==4">文史名人</span>
+							<span ng-if="pojo.type==5">非遗资源</span>
+						</span>
+                        </div>
+                    </li>
 
-						<li>
-							<div class="box-l"><span class="box-l-img"><img src="img/box1.png" width="100%" height="100%"></span></div>
-							<div class="box-c">
-								<div class="box-l-article">
-									<h4>徐衣显观摩我县返乡创业工作开展情况</h4>
-									<p>12月15日，市委副书记、市长徐衣显，副市长王付举到我县观摩返乡创业工作开展情况。县委书记陈泓，县委副书记、县长张红卫。</p>
-								</div>
-							</div>
-							<div class="box-r"><span class="box-r-in">2020-12-11</span></div>
-						</li>
-					</ul>
-					<div class="more">
-						<span>更多</span>
-					</div>
-				</div>
-				<div class="erweima">
-					<img src="img/erweima.png">
-				</div>
-			</div>
+                    <!--<li>
+                        <div class="box-l">
+                            <span class="box-l-img">
+                                <img src="img/box1.png" width="100%"height="100%"></span></div>
+                        <div class="box-c">
+                            <div class="box-l-article">
+                                <h4>徐衣显观摩我县返乡创业工作开展情况</h4>
+                                <p>12月15日，市委副书记、市长徐衣显，副市长王付举到我县观摩返乡创业工作开展情况。县委书记陈泓，县委副书记、县长张红卫。</p>
+                            </div>
+                        </div>
+                        <div class="box-r"><span class="box-r-in">2020-12-11</span></div>
+                    </li>
 
-		</div>
+                    <li>
+                        <div class="box-l"><span class="box-l-img"><img src="img/box1.png" width="100%"
+                                                                        height="100%"></span></div>
+                        <div class="box-c">
+                            <div class="box-l-article">
+                                <h4>徐衣显观摩我县返乡创业工作开展情况</h4>
+                                <p>12月15日，市委副书记、市长徐衣显，副市长王付举到我县观摩返乡创业工作开展情况。县委书记陈泓，县委副书记、县长张红卫。</p>
+                            </div>
+                        </div>
+                        <div class="box-r"><span class="box-r-in">2020-12-11</span></div>
+                    </li>
 
-		<div class="popup">
+                    <li>
+                        <div class="box-l"><span class="box-l-img"><img src="img/box1.png" width="100%"
+                                                                        height="100%"></span></div>
+                        <div class="box-c">
+                            <div class="box-l-article">
+                                <h4>徐衣显观摩我县返乡创业工作开展情况</h4>
+                                <p>12月15日，市委副书记、市长徐衣显，副市长王付举到我县观摩返乡创业工作开展情况。县委书记陈泓，县委副书记、县长张红卫。</p>
+                            </div>
+                        </div>
+                        <div class="box-r"><span class="box-r-in">2020-12-11</span></div>
+                    </li>
 
-			<div class="main popup-container">
-				<div class="logo">
-					<span><img src="img/logo.png" alt="" /></span>
-				</div>
-				<div class="logo-bg"></div>
-				<div class="main-in">
-					<div class="dt_title">
-						<span>关于各省（区、市）文化和旅游厅（局），新疆生产建设兵团文化体育广电和旅游局的通知</span>
-						<span class="time">发布时间:2020-10-25 12:00</span>
-					</div>
-					<div class="contents">
+                    <li>
+                        <div class="box-l"><span class="box-l-img"><img src="img/box1.png" width="100%"
+                                                                        height="100%"></span></div>
+                        <div class="box-c">
+                            <div class="box-l-article">
+                                <h4>徐衣显观摩我县返乡创业工作开展情况</h4>
+                                <p>12月15日，市委副书记、市长徐衣显，副市长王付举到我县观摩返乡创业工作开展情况。县委书记陈泓，县委副书记、县长张红卫。</p>
+                            </div>
+                        </div>
+                        <div class="box-r"><span class="box-r-in">2020-12-11</span></div>
+                    </li>
 
-						<p> 1、根据各地文化馆评估定级系统填报工作实际和近期新冠肺炎疫情防控形势，现将第五次全国文化馆评估定级系
-							统填报时间延期至2020年11月15日（与服务满意度测评截止时间保持一致）。请各级参评文化馆务必于11月15日之前
-							完成数据填报和佐证材料上传工作。请各省级文化和旅游行政部门及时传达至各级参评文化馆。</p>
-						<br />
-						<p>2.请各省级文化和旅游行政部门做好本辖区内“不参评文化馆”的统计工作，“不参加第五次全国文化馆评估定级
-							工作的文化馆名单”提交时间同时延期到2020年11月15日。请于11月15日前将“不参评文化馆名单”纸质版报送至中
-							国文化馆协会，电子版发送至文化和旅游部公共服务司、中国文化馆协会邮箱。</p>
-						<br />
-						<p> 3.于填报进度较快的省份，省级文化和旅游行政部门可以根据当地工作实际，统筹安排好评估工作进度，先行开
-							展地市级及以下参评文化馆的评估工作。</p>
+                    <li>
+                        <div class="box-l"><span class="box-l-img"><img src="img/box1.png" width="100%"
+                                                                        height="100%"></span></div>
+                        <div class="box-c">
+                            <div class="box-l-article">
+                                <h4>徐衣显观摩我县返乡创业工作开展情况</h4>
+                                <p>12月15日，市委副书记、市长徐衣显，副市长王付举到我县观摩返乡创业工作开展情况。县委书记陈泓，县委副书记、县长张红卫。</p>
+                            </div>
+                        </div>
+                        <div class="box-r"><span class="box-r-in">2020-12-11</span></div>
+                    </li>
 
-						<p> 1、根据各地文化馆评估定级系统填报工作实际和近期新冠肺炎疫情防控形势，现将第五次全国文化馆评估定级系
-							统填报时间延期至2020年11月15日（与服务满意度测评截止时间保持一致）。请各级参评文化馆务必于11月15日之前
-							完成数据填报和佐证材料上传工作。请各省级文化和旅游行政部门及时传达至各级参评文化馆。</p>
-						<br />
-						<p>2.请各省级文化和旅游行政部门做好本辖区内“不参评文化馆”的统计工作，“不参加第五次全国文化馆评估定级
-							工作的文化馆名单”提交时间同时延期到2020年11月15日。请于11月15日前将“不参评文化馆名单”纸质版报送至中
-							国文化馆协会，电子版发送至文化和旅游部公共服务司、中国文化馆协会邮箱。</p>
-						<br />
-						<p> 3.于填报进度较快的省份，省级文化和旅游行政部门可以根据当地工作实际，统筹安排好评估工作进度，先行开
-							展地市级及以下参评文化馆的评估工作。</p>
+                    <li>
+                        <div class="box-l"><span class="box-l-img"><img src="img/box1.png" width="100%"
+                                                                        height="100%"></span></div>
+                        <div class="box-c">
+                            <div class="box-l-article">
+                                <h4>徐衣显观摩我县返乡创业工作开展情况</h4>
+                                <p>12月15日，市委副书记、市长徐衣显，副市长王付举到我县观摩返乡创业工作开展情况。县委书记陈泓，县委副书记、县长张红卫。</p>
+                            </div>
+                        </div>
+                        <div class="box-r"><span class="box-r-in">2020-12-11</span></div>
+                    </li>-->
+                </ul>
+                <!--<div class="more">
+                    <span>更多</span>
+                </div>-->
+            </div>
 
-						<p> 1、根据各地文化馆评估定级系统填报工作实际和近期新冠肺炎疫情防控形势，现将第五次全国文化馆评估定级系
-							统填报时间延期至2020年11月15日（与服务满意度测评截止时间保持一致）。请各级参评文化馆务必于11月15日之前
-							完成数据填报和佐证材料上传工作。请各省级文化和旅游行政部门及时传达至各级参评文化馆。</p>
-						<br />
-						<p>2.请各省级文化和旅游行政部门做好本辖区内“不参评文化馆”的统计工作，“不参加第五次全国文化馆评估定级
-							工作的文化馆名单”提交时间同时延期到2020年11月15日。请于11月15日前将“不参评文化馆名单”纸质版报送至中
-							国文化馆协会，电子版发送至文化和旅游部公共服务司、中国文化馆协会邮箱。</p>
-						<br />
-						<p> 3.于填报进度较快的省份，省级文化和旅游行政部门可以根据当地工作实际，统筹安排好评估工作进度，先行开
-							展地市级及以下参评文化馆的评估工作。</p>
+        </div>
 
-					</div>
-					<div class="close popup-close">关闭</div>
-				</div>
-			</div>
+        <div class="erweima">
+            <img src="img/erweima.png">
+        </div>
 
-		</div>
+        <div class="loading">
+            <img src="img/load.gif">
+        </div>
 
-	</body>
+    </div>
 
-	<script>
-		//打开窗口
-		$('#popup').on('click', function(event) {
-			event.preventDefault();
-			$('.popup').addClass('visible');
-			//$(".dialog-addquxiao").hide()
-		});
-		//关闭窗口
-		$('.popup').on('click', function(event) {
-			if ($(event.target).is('.popup-close') || $(event.target).is('.popup')) {
-				event.preventDefault();
-				$(this).removeClass('visible');
-			}
-		});
-		/* //ESC关闭
-		$(document).keyup(function(event){
-		    if(event.which=='27'){
-		        $('.popup').removeClass('visible');
-		    }
-		}); */
-	</script>
+</div>
+
+<div class="popup" id="popup1">
+    <div class="dt1_main popup-container">
+        <div class="dt1_logo">
+            <span><img src="img/logo.png" alt=""/></span>
+        </div>
+        <div class="dt1_logo-bg"></div>
+        <div class="dt1_main-in">
+            <div class="dt1_dt_title">
+                <span>{{entity.title}}</span>
+                <span class="dt1_time">发布时间:{{entity.hotTime|date:'yyyy-MM-dd'}}</span>
+            </div>
+            <div class="dt1_contents" id="contents">
+                <p> 1、根据各地文化馆评估定级系统填报工作实际和近期新冠肺炎疫情防控形势，现将第五次全国文化馆评估定级系
+                    统填报时间延期至2020年11月15日（与服务满意度测评截止时间保持一致）。请各级参评文化馆务必于11月15日之前
+                    完成数据填报和佐证材料上传工作。请各省级文化和旅游行政部门及时传达至各级参评文化馆。
+                </p>
+                <br/>
+                <p>2.请各省级文化和旅游行政部门做好本辖区内“不参评文化馆”的统计工作，“不参加第五次全国文化馆评估定级
+                    工作的文化馆名单”提交时间同时延期到2020年11月15日。请于11月15日前将“不参评文化馆名单”纸质版报送至中
+                    国文化馆协会，电子版发送至文化和旅游部公共服务司、中国文化馆协会邮箱。
+                </p>
+                <br/>
+                <p> 3.于填报进度较快的省份，省级文化和旅游行政部门可以根据当地工作实际，统筹安排好评估工作进度，先行开
+                    展地市级及以下参评文化馆的评估工作。
+                </p>
+            </div>
+            <div class="dt1_close popup-close">关闭</div>
+        </div>
+    </div>
+
+</div>
+
+<div class="popup" id="popup2">
+
+    <div class="dt2_main popup-container">
+        <div class="dt2_logo">
+            <span><img src="img/logo.png" alt=""/></span>
+        </div>
+        <div class="dt2_logo-bg"></div>
+        <div class="dt2_main-in">
+            <div class="dt2_main-top">
+                <div class="dt2_main-left">
+                    <img src="{{entity.img}}" alt="" width="100%" height="100%"/>
+                </div>
+                <div class="dt2_main-right">
+                    <p>{{entity.title}}</p>
+                    <p>活动日期： {{entity.startTime|date:'yyyy-MM-dd'}}至 {{entity.endTime|date:'yyyy-MM-dd'}}</p>
+                    <p>开始时间：{{entity.startTime}}</p>
+                    <p>抢票时间：{{entity.applyTime}}</p>
+                    <p>培训地点：{{entity.site}}</p>
+                    <p>咨询电话：{{entity.phone}}</p>
+                </div>
+            </div>
+            <div id="contents2" class="contents" style="max-height: 550px;overflow-y: auto">
+                <!--<p>茶道，就是品赏茶的美感之道。</p>
+                <p>亦被视为一种烹茶饮茶的生活艺术，一种以茶为媒的生活礼仪，一种以茶修身的生活方式。</p>
+                <p>它通过沏茶、赏茶、闻茶、饮茶、增进友谊，美心修德，学习礼法，领略传统美德，是很有益的一种和美仪式。</p>
+                <p>喝茶能静心、静神，有助于陶冶情操、去除杂念。</p>
+                <p>本次线上培训就茶道主题开展。</p>
+                <p>报名学习方式：网上学习</p>
+                <p>时间：不限 </p>-->
+            </div>
+
+            <div class="dt2_close popup-close">关闭</div>
+        </div>
+    </div>
+
+</div>
+
+<div class="popup" id="popup3">
+    <div class="dt3_main popup-container">
+        <div class="dt3_logo">
+            <span><img src="img/logo.png" alt=""/></span>
+        </div>
+        <div class="dt3_logo-bg"></div>
+        <div class="dt3_main-in">
+            <div class="dt3_main-top">
+                <img ng-repeat="pojo in entity.contents" src="{{pojo.src}}" style="width: 100%;margin-top: 10px"/>
+
+                <!--<div class="dt_main-img swiper-container">
+
+                    <div class="swiper-wrapper">
+
+                       &lt;!&ndash; <div class="swiper-slide swiper-lazy" data-background="{{entity.img}}" data-theme="gray">
+                            <a href="javascript:"></a>
+                        </div>&ndash;&gt;
+
+                    </div>
+                    &lt;!&ndash;<img src="{{entity.img}}" alt="" width="100%" height="100%"/>&ndash;&gt;
+                </div>
+
+                <div class="view">滑动左右观看</div>-->
+            </div>
+            <div id="contents3" class="contents">
+
+                <p>
+                    <em>{{entity.author}}</em>
+                </p>
+                <p id="introduction" style="max-height: 400px;overflow-y: auto">
+                    {{entity.description}}
+                    <!--，1978年生于河南省新乡市，毕业于清华大学艺术系。现为中国美协会员，一级美术师、国家画院驻院画
+                    家、河南省书法家协会会员、河南省美术家协会会员、牧野艺术研究院副院长、古庸书画院院长兼运作部部长、齐派研
+                    究院院长、北京萃雅轩精品书画研究中心主任、陨石收藏家协会副秘书长，兰艺斋签约书画家。-->
+                </p>
+                <div class="dt3_close popup-close">关闭</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="popup" id="popup4">
+
+    <div class="dt4_main popup-container">
+        <div class="dt4_logo">
+            <span><img src="img/logo.png" alt=""/></span>
+        </div>
+        <div class="dt4_logo-bg"></div>
+        <div class="dt4_main-in">
+            <div class="dt4_main-top">
+                <div class="dt4_main-img">
+                    <img src="{{entity.img}}" alt="" width="100%" height="100%"/>
+                </div>
+            </div>
+            <div id="contents4" class="contents">
+
+                <p><em>{{entity.name}}</em>
+
+                </p>
+                <p style="max-height: 400px;overflow-y: auto">
+                    {{entity.introduction}}
+                    <!--，1978年生于河南省新乡市，毕业于清华大学艺术系。现为中国美协会员，一级美术师、国家画院驻院画
+                    家、河南省书法家协会会员、河南省美术家协会会员、牧野艺术研究院副院长、古庸书画院院长兼运作部部长、齐派研
+                    究院院长、北京萃雅轩精品书画研究中心主任、陨石收藏家协会副秘书长，兰艺斋签约书画家。-->
+                </p>
+
+            </div>
+            <div class="dt4_close popup-close">关闭</div>
+        </div>
+    </div>
+
+</div>
+
+<div class="popup" id="popup5">
+    <div class="dt5_main popup-container">
+        <div class="dt5_logo">
+            <span><img src="img/logo.png" alt=""/></span>
+        </div>
+        <div class="dt5_logo-bg"></div>
+        <div class="dt5_main-in">
+            <div class="dt5_main-top">
+
+                <div class="dt5_main-img">
+                    <div class="swiper-container">
+
+                        <div class="swiper-wrapper">
+
+                            <!-- <div class="swiper-slide swiper-lazy" data-background="{{entity.img}}" data-theme="gray">
+                                 <a href="javascript:"></a>
+                             </div>-->
+
+                        </div>
+                    </div>
+                    <!--<img src="{{entity.img}}" alt="" width="100%" height="100%"/>-->
+                </div>
+                <div class="view">滑动左右观看</div>
+                <!--<div class="dt5_main-img">
+                    <img src="{{entity.img}}" alt="" width="100%" height="100%"/>
+                </div>
+                <div class="view">滑动左右观看</div>-->
+            </div>
+            <div id="contents5" class="contents">
+                <p>
+                    <em>{{entity.title}}</em>
+                    <!--原名“粉花”，又名“珐华”或“法花”，盛行于明代，常见器物有较大的瓶、罐、炉以及佛前供品等。山西
+                    曾是珐花陶器的主要产地，历史上蒲州、霍州、文水、平遥、阳城、介休、榆次、太原、朔州、代县、清源、临汾等地
+                    均有烧造记录。根据史料记载，元代开始晋南地区即可生产一种低温彩釉珐花陶器，明代较为盛行，清中后期技艺失传。-->
+                <P style="max-height: 480px;overflow-y: auto">{{entity.description}}{{entity.description}}</P>
+                </p>
+            </div>
+            <div class="dt5_close popup-close">关闭</div>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+
+<!--<script>
+    //打开窗口
+    $('#popup').on('click', function (event) {
+        event.preventDefault();
+        $('.popup').addClass('visible');
+        //$(".dialog-addquxiao").hide()
+    });
+    //关闭窗口
+    $('.popup').on('click', function (event) {
+        if ($(event.target).is('.popup-close') || $(event.target).is('.popup')) {
+            event.preventDefault();
+            $(this).removeClass('visible');
+        }
+    });
+    /* //ESC关闭
+    $(document).keyup(function(event){
+        if(event.which=='27'){
+            $('.popup').removeClass('visible');
+        }
+    }); */
+</script>-->
 </html>

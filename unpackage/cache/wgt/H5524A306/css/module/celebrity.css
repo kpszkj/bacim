@@ -215,6 +215,7 @@
 	width: 429px;
 	height: 530px;
 	background: url(../../img/box.png) no-repeat;
+	background-size: 100% 100%;
 	padding: 4px;
 	margin: 0 auto;
 }

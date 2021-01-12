@@ -9,9 +9,17 @@
 		<!-- 引入css -->
 		<link rel="stylesheet" href="css/module/resource.css">
 		<!-- 引入js -->
+		<script src="js/config/config.js"></script>
 		<script src="js/module/more.js"></script>
+		<!--angularjs组件-->
+		<script src="plugins/angularjs/angular.min.js"></script>
+		<!--引入baseApp-->
+		<script src="js/angular/app/baseApp.js"></script>
+		<script src="js/angular/app/baseController.js"></script>
+		<script src="js/angular/more/moreService.js"></script>
+		<script src="js/angular/more/moreController.js"></script>
 	</head>
-	<body>
+	<body  ng-app="bacim" ng-controller="moreController" ng-init="init()">
 		<header id="header">
 			<div class="nvbt iback" onclick="back();plus.nativeUI.closeWaiting();"></div>
 			<div class="nvtt">

@@ -97,7 +97,7 @@ app.controller('searchController', function ($scope, $controller, $location, $fi
 
     //显示详情页
     $scope.findDetail = function (id, type) {
-        loadDetail();
+        firstLoad();
         if (type == 1) {
             realtimeinfoService.findDetail(id).success(function (rs) {
                 $scope.entity = rs;

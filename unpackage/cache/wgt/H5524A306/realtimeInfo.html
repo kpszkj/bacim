@@ -48,7 +48,7 @@
                     <li ng-repeat="pojo in list" ng-click="findDetail(pojo.id)">
                         <div class="box-l">
 								<span class="box-l-img">
-									<img src="img/box1.png" width="100%" height="100%">
+									<img src="{{pojo.img}}" width="100%" height="100%">
 								</span>
                         </div>
                         <div class="box-c">
@@ -147,7 +147,7 @@
         <div class="logo-bg"></div>
         <div class="main-in">
             <div class="dt_title">
-                <span>{{entity.title}}</span>
+                <span style="overflow: hidden;text-overflow:ellipsis;white-space: nowrap;">{{entity.title}}</span>
                 <span class="time">发布时间:{{entity.hotTime|date:'yyyy-MM-dd'}}</span>
             </div>
             <div class="contents" id="contents">

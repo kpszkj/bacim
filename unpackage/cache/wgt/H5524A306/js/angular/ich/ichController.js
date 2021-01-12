@@ -6,6 +6,7 @@ app.controller('ichController', function ($scope, $controller, $location, $filte
     $scope.entity = {contents: []}
     //初始化加载内容
     $scope.init = function () {
+        firstLoad();
         /*$scope.findCaList();*/
         $scope.search(1);
     }
@@ -34,9 +35,9 @@ app.controller('ichController', function ($scope, $controller, $location, $filte
 
     $scope.list = [];
     $scope.searchEntity = {};
-    $scope.pagination.pageSize = 6;
+    $scope.pagination.pageSize = 9;
     $scope.search = function (page) {
-        scrollTo(0, 0);
+        //scrollTo(0, 0);
         /*document.body.animate({'scrollTop':0},500);*/
         ichService.search(page, $scope.pagination.pageSize, $scope.searchEntity).success(
             function (rs) {
@@ -66,25 +67,60 @@ app.controller('ichController', function ($scope, $controller, $location, $filte
                     }*!/
 
                 }*/
+
+                $scope.$apply();
+                closeLoad();
             }
         );
     }
 
 
     //资讯详情
-    $scope.findDetail = function () {
-        var id = $location.search()['id'];
-        if (isEmpty(id)) {
-        } else {
-            ichService.findDetail(id).success(
-                function (rs) {
-                    $scope.entity = rs;
-                    /*$("#contents").html($scope.entity.contents);*/
-                    $scope.entity.hotTime = $filter('date')($scope.entity.hotTime.replace(' ', 'T'), "yyyy-MM-dd");
-                    $scope.entity.contents = JSON.parse($scope.entity.contents);
+    $scope.findDetail = function (id) {
+        loadDetail();
+
+        ichService.findDetail(id).success(
+            function (rs) {
+                $scope.entity = rs;
+                /*$("#contents").html($scope.entity.contents);*/
+                $scope.entity.hotTime = $filter('date')($scope.entity.hotTime.replace(' ', 'T'), "yyyy-MM-dd");
+                $scope.entity.contents = JSON.parse($scope.entity.contents);
+
+                var contents = "";
+                for (var i = 0; i < $scope.entity.contents.length; i++) {
+                    contents = contents + " <div class=\"swiper-slide swiper-lazy\" data-background=\"" + $scope.entity.contents[i].src + "\" data-theme=\"gray\">\n" +
+                        "                                <a href=\"javascript:\"></a>\n" +
+                        "                            </div>"
                 }
-            );
-        }
+                $(".swiper-wrapper").html(contents);
+
+                new Swiper('.swiper-container', {
+                    loop: true,
+                    /*autoplay: {
+                        delay: 5000,
+                        disableOnInteraction: false,
+                    },*/
+                    pagination: {
+                        el: '.swiper-pagination',
+                        clickable: true
+                    },
+                    on: {
+                        slideChangeTransitionEnd: function () {
+                            var theme = $('.swiper-slide-active').data('theme')
+                            $('#banner').attr('class', theme)
+                        }
+                    },
+                    lazy: {
+                        loadPrevNext: true
+                    }
+                })
+
+                setTimeout(function () {
+                    closeLoad();
+                    popup();
+                }, 200);
+            });
+
     }
 
 

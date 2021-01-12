@@ -234,8 +234,9 @@
 }
 
 .dt_main-top {
-	overflow: hidden;
 	padding-bottom: 30px;
+	max-height: 500px;
+	overflow-y: auto;
 }
 
 .dt_main-img {

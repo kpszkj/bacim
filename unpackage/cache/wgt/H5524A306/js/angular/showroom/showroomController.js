@@ -110,6 +110,36 @@ app.controller('showroomController', function ($scope, $controller, $location, $
                 $scope.entity = rs;
                 $scope.entity.contents = JSON.parse($scope.entity.contents);
                 /*$("#contents").html($scope.entity.contents);*/
+
+                /*var contents = "";
+                for (var i = 0; i < $scope.entity.contents.length; i++) {
+                    contents = contents + " <div class=\"swiper-slide swiper-lazy\" data-background=\"" + $scope.entity.contents[i].src + "\" data-theme=\"gray\">\n" +
+                        "                                <a href=\"javascript:\"></a>\n" +
+                        "                            </div>"
+                }
+                $(".swiper-wrapper").html(contents);
+
+                new Swiper('.swiper-container', {
+                    loop: true,
+                    autoplay: {
+                        delay: 5000,
+                        disableOnInteraction: false,
+                    },
+                    pagination: {
+                        el: '.swiper-pagination',
+                        clickable: true
+                    },
+                    on: {
+                        slideChangeTransitionEnd: function () {
+                            var theme = $('.swiper-slide-active').data('theme')
+                            $('#banner').attr('class', theme)
+                        }
+                    },
+                    lazy: {
+                        loadPrevNext: true
+                    }
+                })*/
+
                 $scope.entity.hotTime = $filter('date')($scope.entity.hotTime.replace(' ', 'T'), "yyyy-MM-dd");
                 //页面显示
                 setTimeout(function () {

@@ -5,20 +5,28 @@
 		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0,user-scalable=no" />
 		<meta name="HandheldFriendly" content="true" />
 		<meta name="MobileOptimized" content="320" />
-		<title>博爱县文化馆一体机_数字资源</title>
+		<title>更多资源</title>
 		<!-- 引入css -->
 		<link rel="stylesheet" href="css/module/resource.css">
 		<!-- 引入js -->
+		<script src="js/config/config.js"></script>
 		<script src="js/module/more.js"></script>
+		<!--angularjs组件-->
+		<script src="plugins/angularjs/angular.min.js"></script>
+		<!--引入baseApp-->
+		<script src="js/angular/app/baseApp.js"></script>
+		<script src="js/angular/app/baseController.js"></script>
+		<script src="js/angular/more/moreService.js"></script>
+		<script src="js/angular/more/moreController.js"></script>
 	</head>
-	<body>
+	<body  ng-app="bacim" ng-controller="moreController" ng-init="init()">
 		<header id="header">
 			<div class="nvbt iback" onclick="back();plus.nativeUI.closeWaiting();"></div>
 			<div class="nvtt">
 				<!-- <form action="?" method="get" onsubmit="openUrl();return false;">
 				<input id="url" type="url" value="http://demo.tushu.zzstep.com/"/>
 				</form> -->
-				数字资源
+				更多资源
 			</div>
 			<div class="nvbt" onclick="openUrl();"></div>
 		</header>
