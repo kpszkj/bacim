@@ -203,9 +203,9 @@
                         <img src="{{entity.img}}" alt="" width="100%" height="100%"/>
                     </div>
                     <div class="dt_main-right">
-                        <p>{{entity.title}}</p>
+                        <p style="overflow: hidden;text-overflow:ellipsis;white-space: nowrap;">{{entity.title}}</p>
                         <p>活动日期： {{entity.startTime|date:'yyyy-MM-dd'}}至 {{entity.endTime|date:'yyyy-MM-dd'}}</p>
-                        <p>开始时间：{{entity.startTime}}</p>
+                        <p>开始时间：{{entity.startTime|date:'yyyy-MM-dd'}}</p>
                         <p>抢票时间：{{entity.applyTime}}</p>
                         <p>培训地点：{{entity.site}}</p>
                         <p>咨询电话：{{entity.phone}}</p>

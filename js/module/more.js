@@ -11,7 +11,7 @@ function createEmbed(type) {
 	} else if (type == 2) {
 		url = "http://app.baxwhy.cn";
 	}
-	alert(url)
+	//alert(url);
 	var topoffset = '44px';
 	plus.nativeUI.showWaiting('', {
 		style: 'black',
