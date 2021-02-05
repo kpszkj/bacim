@@ -4,6 +4,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta name="viewport" content="initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
     <title></title>
     <link rel="stylesheet" href="css/base/base.css">
     <link rel="stylesheet" type="text/css" href="css/module/showroom.css">
@@ -136,19 +137,24 @@
                     </li>-->
                 </ul>
 
+                
+                
                 <div class="page">
-                    <span ng-if="pagination.pageNum>1" ng-click="search(pagination.pageNum-1)">
-						<img src="img/left.png" alt=""/>
-					</span>
-                    <span onclick="alert('已经是第一页了')" ng-if="pagination.pageNum<=1">
-                        <img src="img/left.png" alt=""/>
-                    </span>
-                    <span ng-if="pagination.pageNum<pagination.totalPages" ng-click="search(pagination.pageNum+1)">
-						<img src="img/right.png" alt=""/>
-					</span>
-                    <span onclick="alert('已经是最后一页了')" ng-if="pagination.pageNum>=pagination.totalPages">
-                        <img src="img/right.png" alt=""/>
-                    </span>
+                	<span onclick="alert('已经是第一页了')" ng-if="pagination.pageNum<=1" style="float: left;">
+                		<img src="img/left.png" alt="" />
+                	</span>
+                	<span ng-if="pagination.pageNum>1" ng-click="search(pagination.pageNum-1)"
+                		style="float: left;">
+                		<img src="img/left.png" alt="" />
+                	</span>
+                	<span onclick="alert('已经是最后一页了')" ng-if="pagination.pageNum>=pagination.totalPages"
+                		style="float: right;">
+                		<img src="img/right.png" alt="" />
+                	</span>
+                	<span ng-if="pagination.pageNum<pagination.totalPages"
+                		ng-click="search(pagination.pageNum+1)" style="float: right;">
+                		<img src="img/right.png" alt="" />
+                	</span>
                 </div>
 
             </div>
@@ -189,8 +195,8 @@
                     <p>
                         <em>{{entity.author}}</em>
                     </p>
-                    <p id="introduction" style="max-height: 400px;overflow-y: auto">
-                        {{entity.description}}
+                    <p id="introduction" style="max-height: 340px;overflow-y: auto">
+                        {{entity.description}} {{entity.description}}
                         <!--，1978年生于河南省新乡市，毕业于清华大学艺术系。现为中国美协会员，一级美术师、国家画院驻院画
                         家、河南省书法家协会会员、河南省美术家协会会员、牧野艺术研究院副院长、古庸书画院院长兼运作部部长、齐派研
                         究院院长、北京萃雅轩精品书画研究中心主任、陨石收藏家协会副秘书长，兰艺斋签约书画家。-->

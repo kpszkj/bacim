@@ -4,6 +4,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta name="viewport" content="initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
     <title></title>
 
     <link rel="stylesheet" href="css/base/base.css">
@@ -172,15 +173,24 @@
 
                 </ul>
 
+                
+                
                 <div class="page">
-                    <span ng-if="pagination.pageNum>1" ng-click="search(pagination.pageNum-1)">
-						<img src="img/left.png" alt=""/>
-					</span>
-                    <span ng-if="pagination.pageNum<pagination.totalPages" ng-click="search(pagination.pageNum+1)">
-						<img src="img/right.png" alt=""/>
-					</span>
-                    <span onclick="alert('已经是第一页了')"><img src="img/left.png" alt=""/></span>
-                    <span onclick="alert('已经是最后一页了')"><img src="img/right.png" alt=""/></span>
+                	<span onclick="alert('已经是第一页了')" ng-if="pagination.pageNum<=1" style="float: left;">
+                		<img src="img/left.png" alt="" />
+                	</span>
+                	<span ng-if="pagination.pageNum>1" ng-click="search(pagination.pageNum-1)"
+                		style="float: left;">
+                		<img src="img/left.png" alt="" />
+                	</span>
+                	<span onclick="alert('已经是最后一页了')" ng-if="pagination.pageNum>=pagination.totalPages"
+                		style="float: right;">
+                		<img src="img/right.png" alt="" />
+                	</span>
+                	<span ng-if="pagination.pageNum<pagination.totalPages"
+                		ng-click="search(pagination.pageNum+1)" style="float: right;">
+                		<img src="img/right.png" alt="" />
+                	</span>
                 </div>
 
             </div>

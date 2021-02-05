@@ -35,7 +35,7 @@ app.controller('ichController', function ($scope, $controller, $location, $filte
 
     $scope.list = [];
     $scope.searchEntity = {};
-    $scope.pagination.pageSize = 9;
+    $scope.pagination.pageSize = 6;
     $scope.search = function (page) {
         //scrollTo(0, 0);
         /*document.body.animate({'scrollTop':0},500);*/

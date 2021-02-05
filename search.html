@@ -2,7 +2,8 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title></title>
+	<meta name="viewport" content="initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <title>在线检索</title>
 
     <!-- 引入css -->
     <link rel="stylesheet" href="css/base/base.css">
@@ -182,10 +183,10 @@
 
 <div class="popup" id="popup1">
     <div class="dt1_main popup-container">
-        <div class="dt1_logo">
+        <div class="dt_logo">
             <span><img src="img/logo.png" alt=""/></span>
         </div>
-        <div class="dt1_logo-bg"></div>
+        <div class="dt_logo-bg"></div>
         <div class="dt1_main-in">
             <div class="dt1_dt_title">
                 <span>{{entity.title}}</span>
@@ -206,7 +207,7 @@
                     展地市级及以下参评文化馆的评估工作。
                 </p>
             </div>
-            <div class="dt1_close popup-close">关闭</div>
+            <div class="dt_close popup-close">关闭</div>
         </div>
     </div>
 
@@ -215,10 +216,10 @@
 <div class="popup" id="popup2">
 
     <div class="dt2_main popup-container">
-        <div class="dt2_logo">
+        <div class="dt_logo">
             <span><img src="img/logo.png" alt=""/></span>
         </div>
-        <div class="dt2_logo-bg"></div>
+        <div class="dt_logo-bg"></div>
         <div class="dt2_main-in">
             <div class="dt2_main-top">
                 <div class="dt2_main-left">
@@ -233,7 +234,7 @@
                         <p>咨询电话：{{entity.phone}}</p>
                 </div>
             </div>
-            <div id="contents2" class="contents" style="max-height: 550px;overflow-y: auto">
+            <div id="contents2" class="contents" style="max-height: 550px;overflow-y: auto;">
                 <!--<p>茶道，就是品赏茶的美感之道。</p>
                 <p>亦被视为一种烹茶饮茶的生活艺术，一种以茶为媒的生活礼仪，一种以茶修身的生活方式。</p>
                 <p>它通过沏茶、赏茶、闻茶、饮茶、增进友谊，美心修德，学习礼法，领略传统美德，是很有益的一种和美仪式。</p>
@@ -243,7 +244,7 @@
                 <p>时间：不限 </p>-->
             </div>
 
-            <div class="dt2_close popup-close">关闭</div>
+            <div class="dt_close popup-close">关闭</div>
         </div>
     </div>
 
@@ -251,10 +252,10 @@
 
 <div class="popup" id="popup3">
     <div class="dt3_main popup-container">
-        <div class="dt3_logo">
+        <div class="dt_logo">
             <span><img src="img/logo.png" alt=""/></span>
         </div>
-        <div class="dt3_logo-bg"></div>
+        <div class="dt_logo-bg"></div>
         <div class="dt3_main-in">
             <div class="dt3_main-top">
                 <img ng-repeat="pojo in entity.contents" src="{{pojo.src}}" style="width: 100%;margin-top: 10px"/>
@@ -278,13 +279,14 @@
                 <p>
                     <em>{{entity.author}}</em>
                 </p>
-                <p id="introduction" style="max-height: 400px;overflow-y: auto">
+                <p id="introduction" style="max-height: 360px;overflow-y: auto">
+                    {{entity.description}}
                     {{entity.description}}
                     <!--，1978年生于河南省新乡市，毕业于清华大学艺术系。现为中国美协会员，一级美术师、国家画院驻院画
                     家、河南省书法家协会会员、河南省美术家协会会员、牧野艺术研究院副院长、古庸书画院院长兼运作部部长、齐派研
                     究院院长、北京萃雅轩精品书画研究中心主任、陨石收藏家协会副秘书长，兰艺斋签约书画家。-->
                 </p>
-                <div class="dt3_close popup-close">关闭</div>
+                <div class="dt_close popup-close">关闭</div>
             </div>
         </div>
     </div>
@@ -293,10 +295,10 @@
 <div class="popup" id="popup4">
 
     <div class="dt4_main popup-container">
-        <div class="dt4_logo">
+        <div class="dt_logo">
             <span><img src="img/logo.png" alt=""/></span>
         </div>
-        <div class="dt4_logo-bg"></div>
+        <div class="dt_logo-bg"></div>
         <div class="dt4_main-in">
             <div class="dt4_main-top">
                 <div class="dt4_main-img">
@@ -308,7 +310,7 @@
                 <p><em>{{entity.name}}</em>
 
                 </p>
-                <p style="max-height: 400px;overflow-y: auto">
+                <p style="max-height:300px;overflow-y: auto">
                     {{entity.introduction}}
                     <!--，1978年生于河南省新乡市，毕业于清华大学艺术系。现为中国美协会员，一级美术师、国家画院驻院画
                     家、河南省书法家协会会员、河南省美术家协会会员、牧野艺术研究院副院长、古庸书画院院长兼运作部部长、齐派研
@@ -316,7 +318,7 @@
                 </p>
 
             </div>
-            <div class="dt4_close popup-close">关闭</div>
+            <div class="dt_close popup-close">关闭</div>
         </div>
     </div>
 
@@ -324,10 +326,10 @@
 
 <div class="popup" id="popup5">
     <div class="dt5_main popup-container">
-        <div class="dt5_logo">
+        <div class="dt_logo">
             <span><img src="img/logo.png" alt=""/></span>
         </div>
-        <div class="dt5_logo-bg"></div>
+        <div class="dt_logo-bg"></div>
         <div class="dt5_main-in">
             <div class="dt5_main-top">
 
@@ -339,10 +341,9 @@
                             <!-- <div class="swiper-slide swiper-lazy" data-background="{{entity.img}}" data-theme="gray">
                                  <a href="javascript:"></a>
                              </div>-->
-
+                    <!--<img src="{{entity.img}}" alt="" width="100%" height="100%"/>-->
                         </div>
                     </div>
-                    <!--<img src="{{entity.img}}" alt="" width="100%" height="100%"/>-->
                 </div>
                 <div class="view">滑动左右观看</div>
                 <!--<div class="dt5_main-img">
@@ -356,10 +357,10 @@
                     <!--原名“粉花”，又名“珐华”或“法花”，盛行于明代，常见器物有较大的瓶、罐、炉以及佛前供品等。山西
                     曾是珐花陶器的主要产地，历史上蒲州、霍州、文水、平遥、阳城、介休、榆次、太原、朔州、代县、清源、临汾等地
                     均有烧造记录。根据史料记载，元代开始晋南地区即可生产一种低温彩釉珐花陶器，明代较为盛行，清中后期技艺失传。-->
-                <P style="max-height: 480px;overflow-y: auto">{{entity.description}}{{entity.description}}</P>
+                <P style="max-height: 340px;overflow-y: auto">{{entity.description}}</P>
                 </p>
             </div>
-            <div class="dt5_close popup-close">关闭</div>
+            <div class="dt_close popup-close">关闭</div>
         </div>
 
     </div>

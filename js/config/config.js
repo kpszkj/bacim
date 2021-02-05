@@ -6,6 +6,7 @@
 // var baseUrl = "http://192.168.0.110:8080/cim/";
 // var baseUrl = "http://app.fqxwhy.cn/";
 var baseUrl = "http://bacim.kpszkj.cn/";
+// var baseUrl = "http://cim.hxswhy.cn/";
 
 // 配置当前文化馆标识
 //var cid = 2;

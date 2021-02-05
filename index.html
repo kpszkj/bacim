@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
 		<title>首页</title>
 
 		<!-- 引入css -->
@@ -9,8 +10,10 @@
 		<link rel="stylesheet" href="css/module/index.css">
 		<!-- 引入js -->
 		<script src="js/jquery/jquery.min.js"></script>
+		<script src="js/layer/layer.js"></script>
 		<script src="js/config/common.js"></script>
 		<script src="js/config/config.js"></script>
+		<script src="js/update.js"></script>
 	</head>
 	<body>
 		<div class="module">
@@ -36,7 +39,20 @@
 						<img src="./img/module5.png">
 						<span><img src="img/module55.png"></span>
 					</li>
-					<li onclick="openView('resource.html','slide-in-right')">
+					<script>
+					function toMk() {
+					    layer.confirm('即将打开：鲲鹏大河数字文化资源库<br/>请牢记以下账户密码<br/>账户：abc<br/>密码：123', {
+					        btn: ['打开', '取消']
+					    }, function (index) {
+							openView('resource.html','slide-in-right');
+					        //window.open("http://demo.tushu.zzstep.com/");
+					        layer.close(index);
+					        //location.href = "http://demo.tushu.zzstep.com/";
+					    }, function () {
+					    });
+					}
+					</script>
+					<li onclick="toMk()">
 						<img src="./img/module6.png">
 						<span><img src="img/module66.png"></span>
 					</li>
@@ -44,7 +60,7 @@
 						<img src="./img/module7.png">
 						<span><img src="img/module77.png"></span>
 					</li>
-					<li onclick="openView('message.html','slide-in-bottom')">
+					<li onclick="openView('message.html','slide-in-bottom');">
 						<img src="./img/module8.png">
 						<span><img src="img/module88.png"></span>
 					</li>

@@ -1,19 +1,20 @@
 /* 取消所有边距 */
+/* border:1px solid red; */
 * {
-    margin: 0;
-    padding: 0;
+	margin: 0;
+	padding: 0;
 }
 
 /* body尺寸 */
 html body {
-    width: 1080px;
-    height: 1920px;
-    overflow: hidden;
-    font-size: 18px;
+	width: 720px;
+	height: 1280px;
+	overflow: hidden;
+	font-size: 14px;
 }
 
 ul li {
-    list-style-type: none;
+	list-style-type: none;
 }
 
 /* 取消网页样式 */
@@ -21,191 +22,226 @@ input,
 button,
 select,
 textarea {
-    outline: none;
+	outline: none;
 }
 
 /* 取消链接按钮点击时默认背景 */
 a,
 button {
-    -webkit-tap-highlight-color: transparent;
+	-webkit-tap-highlight-color: transparent;
 }
 
+.top {
+	//border: 1px solid red;
+	margin: 0 auto;
+	padding: 5px 0;
+	overflow: hidden;
+	border-bottom: 1px solid #d5b085;
+}
+
+.top-l {
+	//border: 1px solid red;
+	background: url(../../img/top-l.png);
+	background-size: 100% 100%;
+	display: inline-block;
+	width: 120px;
+	height: 36px;
+	//color: #666666;
+	color: #FFFFFF;
+	text-align: center;
+	line-height: 38px;
+	font-size: 14px;
+}
+
+.top-r {
+	//border: 1px solid red;
+	background: url(../../img/return.png) 12px center no-repeat #f4f1ea;
+	background-size: 10px;
+	color: #d5b085;
+	border: 1px solid #d5b085;
+	margin: 5px 5px 0 0;
+	padding-left: 35px;
+	//background: #f0f5f8;
+	width: 40px;
+	height: 28px;
+	line-height: 29px;
+	font-size: 12px;
+	display: inline-block;
+	border-radius: 4px;
+	float: right;
+}
 
 .page {
-    margin: 0 auto;
-    text-align: center;
-    position: absolute;
-    bottom: 200px;
-    left: 420px;
+	//border: 1px solid red;
+	position: absolute;
+	left: 290px;
+	bottom: 180px;
+	width: 140px;
+	margin: 0 auto;
+	text-align: center;
+	height: 40px;
+	z-index: 99;
+}
+
+.page span img {
+	height: 40px;
 }
 
 .erweima {
-    position: absolute;
-    right: 100px;
-    bottom: 100px;
-    width: 129px;
-    height: 162px;
+	position: absolute;
+	right: 60px;
+	bottom: 60px;
+	width: 80px;
+	height: 110px;
+}
+
+.erweima img {
+	width: 80px;
+	height: 110px;
 }
 
 .loading {
-    //display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    margin-left: -167px;
-    margin-top: -57px;
-    z-index: 9999;
+	/* display: none; */
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	margin-left: -120px;
+	margin-top: -40px;
+	z-index: 99999;
+}
+
+.loading img {
+	width: 240;
+	height: 80px;
 }
 
 /* 盒子宽高，边距 */
 
-.contain1 {
-}
+.contain1 {}
 
-.contain2 {
-}
+.contain2 {}
 
-.contain3 {
-}
+.contain3 {}
 
-.contain4 {
-}
+.contain4 {}
 
-.contain5 {
-}
+.contain5 {}
 
-.contain6 {
-}
+.contain6 {}
 
-.contain7 {
-}
+.contain7 {}
 
-.contain8 {
-}
+.contain8 {}
 
-.contain9 {
-}
+.contain9 {}
 
-.contain10 {
-}
+.contain10 {}
 
 /* 
  字体样式，大小颜色，间距，
  */
 
-.font1 {
-}
+.font1 {}
 
-.font2 {
-}
+.font2 {}
 
-.font3 {
-}
+.font3 {}
 
-.font4 {
-}
+.font4 {}
 
-.font5 {
-}
+.font5 {}
 
-.font6 {
-}
+.font6 {}
 
 
 /*
  背景设计
  */
 
-.bg1 {
-}
+.bg1 {}
 
-.bg2 {
-}
+.bg2 {}
 
-.bg3 {
-}
+.bg3 {}
 
-.bg4 {
-}
+.bg4 {}
 
-.bg5 {
-}
+.bg5 {}
 
-.bg6 {
-}
+.bg6 {}
 
 
 /* 插件 */
 
 /* 按钮一 */
 .button1 {
-    position: relative;
-    background-color: #4CAF50;
-    border: none;
-    font-size: 28px;
-    color: #FFFFFF;
-    padding: 20px;
-    width: 200px;
-    text-align: center;
-    -webkit-transition-duration: 0.4s;
-    /* Safari */
-    transition-duration: 0.4s;
-    text-decoration: none;
-    overflow: hidden;
-    cursor: pointer;
+	position: relative;
+	background-color: #4CAF50;
+	border: none;
+	font-size: 28px;
+	color: #FFFFFF;
+	padding: 20px;
+	width: 200px;
+	text-align: center;
+	-webkit-transition-duration: 0.4s;
+	/* Safari */
+	transition-duration: 0.4s;
+	text-decoration: none;
+	overflow: hidden;
+	cursor: pointer;
 }
 
 .button1:after {
-    border: none;
-    content: '';
-    background: #90EE90;
-    display: block;
-    position: absolute;
-    padding-top: 300%;
-    padding-left: 350%;
-    margin-left: -20px !important;
-    margin-top: -120%;
-    opacity: 0;
-    transition: all 0.8s
+	border: none;
+	content: '';
+	background: #90EE90;
+	display: block;
+	position: absolute;
+	padding-top: 300%;
+	padding-left: 350%;
+	margin-left: -20px !important;
+	margin-top: -120%;
+	opacity: 0;
+	transition: all 0.8s
 }
 
 .button1:active:after {
-    border: none;
-    padding: 0;
-    margin: 0;
-    opacity: 1;
-    transition: 0s
+	border: none;
+	padding: 0;
+	margin: 0;
+	opacity: 1;
+	transition: 0s
 }
 
 .button1:hover {
-    border: none;
+	border: none;
 }
 
 
 /* 按钮二 */
 .button2 {
-    float: left;
-    box-shadow: 0px 0px 0px 2px #9fb4f2;
-    background: linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
-    background-color: #7892c2;
-    border-radius: 10px;
-    border: 1px solid #4e6096;
-    display: inline-block;
-    cursor: pointer;
-    color: #ffffff;
-    font-family: Arial;
-    font-size: 19px;
-    padding: 12px 37px;
-    text-decoration: none;
-    text-shadow: 0px 1px 0px #283966;
+	float: left;
+	box-shadow: 0px 0px 0px 2px #9fb4f2;
+	background: linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
+	background-color: #7892c2;
+	border-radius: 10px;
+	border: 1px solid #4e6096;
+	display: inline-block;
+	cursor: pointer;
+	color: #ffffff;
+	font-family: Arial;
+	font-size: 19px;
+	padding: 12px 37px;
+	text-decoration: none;
+	text-shadow: 0px 1px 0px #283966;
 }
 
 .button2 {
-    background: linear-gradient(to bottom, #476e9e 5%, #7892c2 100%);
-    background-color: #476e9e;
+	background: linear-gradient(to bottom, #476e9e 5%, #7892c2 100%);
+	background-color: #476e9e;
 }
 
 .button2:active {
-    position: relative;
-    top: 10px;
+	position: relative;
+	top: 10px;
 }

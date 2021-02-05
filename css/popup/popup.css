@@ -23,11 +23,11 @@
 
 .popup-container {
 	position: relative;
-	width: 910px;
-	height: 1200px;
+	width: 680;
+	height: 900px;
 	background: #f6f5f2;
-	border-radius: 20px;
-	margin: 360px auto;
+	border-radius: 10px;
+	margin: 200px auto;
 	//overflow-y: auto;
 	background: #FFF;
 	/* 	border-radius: .4rem .4rem .4rem .4rem; */
@@ -71,9 +71,10 @@
 .contents {
 	text-align: left;
 	//letter-spacing: 1px;
-	font-size: 16px;
+	font-size: 12px;
 	text-indent: 0em;
 }
-.contents img{
+
+.contents img {
 	width: 95%;
 }

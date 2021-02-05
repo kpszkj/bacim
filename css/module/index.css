@@ -1,16 +1,48 @@
-.module{
+.module {
 	position: relative;
-	width: 1080px;
-	height: 1920px;
+	width: 720px;
+	height: 1280px;
 	background-image: url(../../img/body-bg.png);
+	background-size: 100% 100%;
 	background-repeat: no-repeat;
 }
-.module-in{
-	width: 85%;
-	margin:0 auto;
-	padding-top: 430px;
+
+.module-in {
+	//border: 1px solid red;
+	width: 88%;
+	margin: 0 6%;
+	padding-top: 250px;
 }
-.enter{
+
+.module ul li {
+	//border: 1px solid red;
+	width: 33.33%;
+	float: left;
+	text-align: center;
+	margin-top: 30px;
+}
+
+.module ul li img {
+	text-align: center;
+	margin: 0 auto;
+	width: 80%;
+	display: inline-block;
+}
+
+.module ul li span {
+	display: inline-block;
+	margin-top: 20px;
+}
+
+/* .erweima {
+	width: 129px;
+	height: 170px;
+	position: absolute;
+	bottom: 100px;
+	right: 100px;
+} */
+
+/* .enter {
 	position: fixed;
 	bottom: 12%;
 	background: url(../../img/enter.png) no-repeat;
@@ -18,27 +50,4 @@
 	height: 271px;
 	left: 50%;
 	margin-left: -135px;
-}
-
-.module ul li{
-	width: 33.33%;
-	float: left;
-	text-align: center;
-	margin-top: 50px;
-}
-.module ul li img{
-	text-align: center;
-	margin:0 auto;
-	display: block;
-}
-.module ul li span{
-	display: inline-block;
-	margin-top: 20px;
-}
-.erweima{
-	width: 129px;
-	height: 170px;
-	position: absolute;
-	bottom: 100px;
-	right: 100px;
-}
+} */

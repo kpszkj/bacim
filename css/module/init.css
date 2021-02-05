@@ -1,18 +1,24 @@
-main{
+main {
 	position: relative;
-	width: 1080px;
-	height: 1920px;
+	width: 720px;
+	height: 1280px;
 	overflow: hidden;
 	background-image: url(../../img/init.png);
-	background-size: 1080px 1920px;
+	background-size: 100% 100%;
 	background-repeat: no-repeat;
 }
 
 .enter {
-	width: 280px;
-	height: 280px;
+	//border: 1px solid red;
 	position: absolute;
+	width: 180px;
+	height: 180px;
 	left: 50%;
-	margin-left: -140px;
-	bottom: 280px;
+	margin-left: -90px;
+	bottom: 100px;
+}
+
+.enter img {
+	width: 180px;
+	height: 180px;
 }
